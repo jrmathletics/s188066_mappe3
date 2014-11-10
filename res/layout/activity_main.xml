@@ -7,10 +7,42 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.s188066_mappe3.MainActivity" >
+    
 
     <TextView
+        android:id="@+id/wallTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_centerHorizontal="true"
+        android:text="@string/wallText" 
+    />
+    
+    <ListView
+        android:id="@+id/wallLV"
+        android:layout_below="@id/wallTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+    />
+       <!-- android:layout_centerHorizontal="true" --> 
+    
+    
+    <TextView 
+        android:id="@+id/thingTV"
+        android:layout_below="@id/wallLV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/thingText"
+    />
+    
+    <ListView 
+        android:id="@+id/thingLV"
+        android:layout_below="@+id/thingTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    />
+    
+    <!-- android:layout_centerHorizontal="true" -->    
 
 </RelativeLayout>

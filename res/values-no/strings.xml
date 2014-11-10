@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Skruevelgern</string>
+    <string name="wallText">Hvilken vegg har du?</string>
+    <string name="thingText">Hva har du tenkt å henge opp?</string>
+    <string name="action_settings">Instillinger</string>
+    
+    <!-- WALLS -->
+    <string name="bWallText">Betong</string>
+    <string name="thWallText">Tegl/Hullstein</string>
+    <string name="llWallText">Lettbetong</string>
+    <string name="gWallText">Gips</string>
+    <string name="sWallText">Sponplate</string>
+    
+    <!-- THINGS -->
+    <string name="lampText">Taklampe</string>
+    <string name="curtainText">Gardinstang</string>
+    <string name="sMirrorFrameText">Mindre Maleri/Speil</string>
+    <string name="bMirrorFrameText">Større Maleri/Speil</string>
+    <string name="closetText">Skap/Garderobehylle</string>
+    
+    <!-- PRODUCTS -->
+    <string name="productButterflyText">Takbeslag</string>
+    <string name="productUniversalPCHText">Universalplugg M/ Lampekrok</string>
+    <string name="productNylonPCHText">Nylonplugg M/ Lampekrok</string>
+    <string name="productScrewText">Skrue</string>
+    <string name="productDrywallAnchorText">Gipsanker-/plugg</string>
+    <string name="productUniversalPSText">Universalplugg M/ Skrue</string>
+    <string name="productNylonPSText">Nylonplugg M/ Skrue</string>
+    <string name="productPictureHookText">X-Krok</string>
+    <string name="productHerculesText">Gipskrok Hercules</string>
+    <string name="productPlasticHardWallText">XB-Krok</string>
+    <string name="productExpansionText">Ekspansjonsanker For Gips</string>
+    
+
+    
+</resources>

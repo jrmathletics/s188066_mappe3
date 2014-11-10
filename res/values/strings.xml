@@ -2,7 +2,37 @@
 <resources>
 
     <string name="app_name">Skruevelgern</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="wallText">Which wall do you have?</string>
+    <string name="thingText">What are you planning on hanging up?</string>
     <string name="action_settings">Settings</string>
+    
+    <!-- WALLS -->
+    <string name="bWallText">Concrete</string>
+    <string name="thWallText">Brickwork</string>
+    <string name="llWallText">Cinder Block</string>
+    <string name="gWallText">Drywall</string>
+    <string name="sWallText">Plywood</string>
+    
+    <!-- THINGS -->
+    <string name="lampText">Ceiling Lamp</string>
+    <string name="curtainText">Curtain Rod</string>
+    <string name="sMirrorFrameText">Small Mirror/Frame</string>
+    <string name="bMirrorFrameText">Large Mirror/Frame</string>
+    <string name="closetText">Closet Shelf</string>
+    
+    <!-- PRODUCTS -->
+    <string name="productButterflyText">Butterfly Anchor</string>
+    <string name="productUniversalPCHText">Universal Plug W/ Ceiling Hook</string>
+    <string name="productNylonPCHText">Nylon Plug W/ Ceiling Hook</string>
+    <string name="productScrewText">Screw</string>
+    <string name="productDrywallAnchorText">Drywall Anchor</string>
+    <string name="productUniversalPSText">Universal Plug W/ Screw</string>
+    <string name="productNylonPSText">Nylon Plug W/ Screw</string>
+    <string name="productPictureHookText">Picture Hook</string>
+    <string name="productHerculesText">Drywall Hook Hercules</string>
+    <string name="productPlasticHardWallText">Plastic Hard Wall Picture Hook</string>
+    <string name="productExpansionText">Drywall Expansion Anchor</string>
+    
 
+    
 </resources>
