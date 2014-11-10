@@ -12,10 +12,10 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-public class CustomCursorAdapter extends CursorAdapter{
+public class WallCursorAdapter extends CursorAdapter{
 	
 	@SuppressWarnings("deprecation")
-	public CustomCursorAdapter(Context context, Cursor c){
+	public WallCursorAdapter(Context context, Cursor c){
 		super(context, c);
 	}
 	

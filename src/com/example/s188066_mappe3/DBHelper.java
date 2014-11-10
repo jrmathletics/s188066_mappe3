@@ -16,7 +16,7 @@ public class DBHelper{
 	private static final String TAG = DBHelper.class.getSimpleName();
 	
 	// Database config
-	public static final int DATABASE_VERSION = 3;
+	public static final int DATABASE_VERSION = 4;
 	public static final String DATABASE_NAME = "skruevelger.db";
 	
 	//Wall Table config

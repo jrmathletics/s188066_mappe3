@@ -43,6 +43,14 @@
         android:layout_height="wrap_content"
     />
     
+    <Button
+        android:id="@+id/setChoicesButton"
+        android:layout_below="@+id/thingLV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setButtonText"
+    />
+    
     <!-- android:layout_centerHorizontal="true" -->    
 
 </RelativeLayout>

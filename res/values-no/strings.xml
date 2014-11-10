@@ -5,6 +5,8 @@
     <string name="wallText">Hvilken vegg har du?</string>
     <string name="thingText">Hva har du tenkt å henge opp?</string>
     <string name="action_settings">Instillinger</string>
+    <string name="setButtonText">Sett valg</string>
+    
     
     <!-- WALLS -->
     <string name="bWallText">Betong</string>
