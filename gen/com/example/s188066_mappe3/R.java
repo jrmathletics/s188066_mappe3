@@ -1077,7 +1077,8 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int ic_launcher=0x7f020057;
+        public static final int ic_action_delete=0x7f020057;
+        public static final int ic_launcher=0x7f020058;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1091,13 +1092,16 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050045;
+        public static final int action_settings=0x7f05004e;
         public static final int activity_chooser_view_content=0x7f050025;
+        public static final int addProductButton=0x7f050040;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
+        public static final int currencyTextView=0x7f05004b;
         public static final int default_activity_button=0x7f050028;
+        public static final int deleteRowImageButton=0x7f05004c;
         public static final int dialog=0x7f05000e;
         public static final int disableHome=0x7f050008;
         public static final int dropdown=0x7f05000f;
@@ -1116,6 +1120,10 @@ containing a value of this type.
         public static final int never=0x7f050009;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
+        public static final int productNameTV=0x7f05003e;
+        public static final int productNameTextView=0x7f050049;
+        public static final int productPriceTV=0x7f05003f;
+        public static final int productPriceTextView=0x7f05004a;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f05002f;
@@ -1129,26 +1137,28 @@ containing a value of this type.
         public static final int search_plate=0x7f050036;
         public static final int search_src_text=0x7f050037;
         public static final int search_voice_btn=0x7f05003b;
-        public static final int setChoicesButton=0x7f050042;
+        public static final int setChoicesButton=0x7f050046;
+        public static final int shoppingListLV=0x7f050047;
         public static final int shortcut=0x7f05002e;
         public static final int showCustom=0x7f050007;
         public static final int showHome=0x7f050004;
+        public static final int showShoppingListButton=0x7f050041;
         public static final int showTitle=0x7f050006;
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
-        public static final int thingIdTV=0x7f05003c;
-        public static final int thingLV=0x7f050041;
-        public static final int thingTV=0x7f050040;
-        public static final int thingTextView=0x7f050044;
+        public static final int thingIdTV=0x7f05003d;
+        public static final int thingLV=0x7f050045;
+        public static final int thingTV=0x7f050044;
+        public static final int thingTextView=0x7f05004d;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
-        public static final int wallIdTV=0x7f05003d;
-        public static final int wallLV=0x7f05003f;
-        public static final int wallTV=0x7f05003e;
-        public static final int walltypeTextView=0x7f050043;
+        public static final int wallIdTV=0x7f05003c;
+        public static final int wallLV=0x7f050043;
+        public static final int wallTV=0x7f050042;
+        public static final int walltypeTextView=0x7f050048;
         public static final int withText=0x7f05000c;
     }
     public static final class integer {
@@ -1203,13 +1213,16 @@ containing a value of this type.
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_item=0x7f030018;
         public static final int activity_main=0x7f030019;
-        public static final int row=0x7f03001a;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001b;
-        public static final int trow=0x7f03001c;
+        public static final int activity_show_shopping_list=0x7f03001a;
+        public static final int row=0x7f03001b;
+        public static final int srow=0x7f03001c;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001d;
+        public static final int trow=0x7f03001e;
     }
     public static final class menu {
         public static final int item=0x7f0c0000;
         public static final int main=0x7f0c0001;
+        public static final int show_shopping_list=0x7f0c0002;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1252,42 +1265,55 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
+        /**  DIV 
+         */
         public static final int action_settings=0x7f0a0010;
+        public static final int addProductButtonText=0x7f0a0016;
+        /**  MAINACTIVITY 
+         */
         public static final int app_name=0x7f0a000d;
-        public static final int bMirrorFrameText=0x7f0a001a;
+        public static final int bMirrorFrameText=0x7f0a0020;
         /**  WALLS 
  WALLS 
          */
-        public static final int bWallText=0x7f0a0012;
-        public static final int closetText=0x7f0a001b;
-        public static final int curtainText=0x7f0a0018;
-        public static final int gWallText=0x7f0a0015;
-        public static final int hello_world=0x7f0a0028;
+        public static final int bWallText=0x7f0a0018;
+        public static final int closetText=0x7f0a0021;
+        public static final int currencyText=0x7f0a0011;
+        public static final int curtainText=0x7f0a001e;
+        public static final int deleteText=0x7f0a0014;
+        public static final int deleteTitle=0x7f0a0013;
+        public static final int gWallText=0x7f0a001b;
+        public static final int hello_world=0x7f0a002e;
         /**  THINGS 
  THINGS 
          */
-        public static final int lampText=0x7f0a0017;
-        public static final int llWallText=0x7f0a0014;
+        public static final int lampText=0x7f0a001d;
+        public static final int llWallText=0x7f0a001a;
+        public static final int productAddedText=0x7f0a0012;
         /**  PRODUCTS 
  PRODUCTS 
          */
-        public static final int productButterflyText=0x7f0a001c;
-        public static final int productDrywallAnchorText=0x7f0a0020;
-        public static final int productExpansionText=0x7f0a0026;
-        public static final int productHerculesText=0x7f0a0024;
-        public static final int productNylonPCHText=0x7f0a001e;
-        public static final int productNylonPSText=0x7f0a0022;
-        public static final int productPictureHookText=0x7f0a0023;
-        public static final int productPlasticHardWallText=0x7f0a0025;
-        public static final int productScrewText=0x7f0a001f;
-        public static final int productUniversalPCHText=0x7f0a001d;
-        public static final int productUniversalPSText=0x7f0a0021;
-        public static final int sMirrorFrameText=0x7f0a0019;
-        public static final int sWallText=0x7f0a0016;
-        public static final int setButtonText=0x7f0a0011;
-        public static final int thWallText=0x7f0a0013;
+        public static final int productButterflyText=0x7f0a0022;
+        public static final int productDrywallAnchorText=0x7f0a0026;
+        public static final int productExpansionText=0x7f0a002c;
+        public static final int productHerculesText=0x7f0a002a;
+        public static final int productNylonPCHText=0x7f0a0024;
+        public static final int productNylonPSText=0x7f0a0028;
+        public static final int productPictureHookText=0x7f0a0029;
+        public static final int productPlasticHardWallText=0x7f0a002b;
+        public static final int productScrewText=0x7f0a0025;
+        public static final int productUniversalPCHText=0x7f0a0023;
+        public static final int productUniversalPSText=0x7f0a0027;
+        public static final int sMirrorFrameText=0x7f0a001f;
+        public static final int sWallText=0x7f0a001c;
+        /**  BUTTONS 
+         */
+        public static final int setButtonText=0x7f0a0015;
+        public static final int showShoppingListButtonText=0x7f0a0017;
+        public static final int thWallText=0x7f0a0019;
         public static final int thingText=0x7f0a000f;
-        public static final int title_activity_item=0x7f0a0027;
+        public static final int title_activity_item=0x7f0a002d;
+        public static final int title_activity_show_shopping_list=0x7f0a002f;
         public static final int wallText=0x7f0a000e;
     }
     public static final class style {

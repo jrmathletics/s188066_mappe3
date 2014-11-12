@@ -1,11 +1,7 @@
 package com.example.s188066_mappe3;
 
-import java.util.Arrays;
-import java.util.Calendar;
-
 import android.content.Context;
 import android.database.Cursor;
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

@@ -19,5 +19,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     
+    <TextView
+        android:id="@+id/productNameTV"
+        android:layout_below="@+id/thingIdTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+	/>
+    
+    <TextView 
+        android:id="@+id/productPriceTV"
+        android:layout_below="@+id/productNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"        
+   	/>
+    
+    <Button
+        android:id="@+id/addProductButton"
+        android:layout_below="@+id/productPriceTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/addProductButtonText"
+   	/>
+    
+    <Button
+        android:id="@+id/showShoppingListButton"
+        android:layout_below="@+id/addProductButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/showShoppingListButtonText"
+    />
 
 </RelativeLayout>

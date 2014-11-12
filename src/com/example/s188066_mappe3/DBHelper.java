@@ -16,7 +16,7 @@ public class DBHelper{
 	private static final String TAG = DBHelper.class.getSimpleName();
 	
 	// Database config
-	public static final int DATABASE_VERSION = 4;
+	public static final int DATABASE_VERSION = 6;
 	public static final String DATABASE_NAME = "skruevelger.db";
 	
 	//Wall Table config
@@ -34,11 +34,14 @@ public class DBHelper{
 	public static final String PRODUCT_TABLE_COLUMN_ID = "_id";
 	public static final String PRODUCT_TABLE_COLUMN_NAME = "productname";
 	public static final String PRODUCT_TABLE_COLUMN_PRICE = "price";
+	public static final String PRODUCT_TABLE_COLUMN_WID = "wall_id";
+	public static final String PRODUCT_TABLE_COLUMN_TID = "thing_id";
 	
 	//Shoppinglist Table config
 	public static final String LIST_TABLE_NAME = "list_table";
 	public static final String LIST_TABLE_COLUMN_ID = "_id";
-	public static final String LIST_TABLE_COLUMN_PID = "product_id";
+	public static final String LIST_TABLE_COLUMN_NAME = "productname";
+	public static final String LIST_TABLE_COLUMN_PRICE = "price";
 	
 	
 	private DatabaseHelper dbHelper;
@@ -109,17 +112,20 @@ public class DBHelper{
 		db.insert(THING_TABLE_NAME, null, cv);
 	}
 	
-	public void addProduct(String pName, int pPrice){	
+	public void addProduct(String pName, int pPrice, int wID, int tID){	
 		ContentValues cv = new ContentValues();
 		cv.put(PRODUCT_TABLE_COLUMN_NAME, pName);
 		cv.put(PRODUCT_TABLE_COLUMN_PRICE, pPrice);
+		cv.put(PRODUCT_TABLE_COLUMN_WID, wID);
+		cv.put(PRODUCT_TABLE_COLUMN_TID, tID);
 		
 		db.insert(PRODUCT_TABLE_NAME, null, cv);
 	}
 	
-	public void addListItem(int pID){
+	public void addListItem(String pName, int price){
 		ContentValues cv = new ContentValues();
-		cv.put(LIST_TABLE_COLUMN_PID, pID);
+		cv.put(LIST_TABLE_COLUMN_NAME, pName);
+		cv.put(LIST_TABLE_COLUMN_PRICE, price);
 		
 		db.insert(LIST_TABLE_NAME, null, cv);
 	}
@@ -151,14 +157,15 @@ public class DBHelper{
 		
 		return db.rawQuery(buildSQL, null);
 	}
-	/*
-	public Cursor listOne(long id){
-		String buildSQL = "SELECT * FROM " + PRODUCT_TABLE_NAME + " WHERE _id" + " = " + id;
+	
+	public Cursor listOne(long wID, long tID){
+		String buildSQL = "SELECT * FROM " + PRODUCT_TABLE_NAME + " WHERE wall_id" + " = " + wID 
+				+ " AND thing_id " + " = " + tID;
 		return db.rawQuery(buildSQL, null);
-	}*/
+	}
 	
 	public int deleteOne(long id){
-		db.execSQL("DELETE FROM "+ LIST_TABLE_NAME +" WHERE product_id='" + id + "'");
+		db.execSQL("DELETE FROM "+ LIST_TABLE_NAME +" WHERE _id='" + id + "'");
 		return db.delete(LIST_TABLE_NAME, "_id=?", new String[]{Long.toString(id)});
 	}
 	/*
@@ -187,12 +194,15 @@ public class DBHelper{
 			String buildSQL3 = "CREATE TABLE " + PRODUCT_TABLE_NAME + "( "
 								+ PRODUCT_TABLE_COLUMN_ID + " INTEGER PRIMARY KEY, "
 								+ PRODUCT_TABLE_COLUMN_NAME + " TEXT, "
-								+ PRODUCT_TABLE_COLUMN_PRICE + " INTEGER )";
+								+ PRODUCT_TABLE_COLUMN_PRICE + " INTEGER, "
+								+ PRODUCT_TABLE_COLUMN_WID + " INTEGER, "
+								+ PRODUCT_TABLE_COLUMN_TID + " INTEGER )";
 
 
 			String buildSQL4 = "CREATE TABLE " + LIST_TABLE_NAME + "( "
 								+ LIST_TABLE_COLUMN_ID + " INTEGER PRIMARY KEY, "
-								+ LIST_TABLE_COLUMN_PID + " INTEGER )";
+								+ LIST_TABLE_COLUMN_NAME + " TEXT, "
+								+ LIST_TABLE_COLUMN_PRICE + " INTEGER )";
 						
 			Log.d(TAG, "onCreate SQL: " + buildSQL);
 			Log.d(TAG, "onCreate SQL: " + buildSQL2);

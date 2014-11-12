@@ -51,6 +51,14 @@
         android:text="@string/setButtonText"
     />
     
+     <Button
+        android:id="@id/showShoppingListButton"
+        android:layout_below="@+id/setChoicesButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/showShoppingListButtonText"
+    />
+    
     <!-- android:layout_centerHorizontal="true" -->    
 
 </RelativeLayout>

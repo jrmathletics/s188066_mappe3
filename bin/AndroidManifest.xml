@@ -30,6 +30,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.s188066_mappe3.MainActivity" />
         </activity>
+        <activity
+            android:name=".ShowShoppingList"
+            android:label="@string/title_activity_show_shopping_list" 
+           android:theme="@android:style/Theme.Holo.Light.Dialog"  
+           >
+        </activity>
     </application>
 
 </manifest>
