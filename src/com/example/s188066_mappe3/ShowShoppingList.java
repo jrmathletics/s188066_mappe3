@@ -2,23 +2,21 @@ package com.example.s188066_mappe3;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
+import android.app.LoaderManager;
+import android.app.LoaderManager.LoaderCallbacks;
+import android.content.Loader;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-public class ShowShoppingList extends Activity {
+public class ShowShoppingList extends Activity implements LoaderCallbacks<Cursor> {
 	
 	ListView shoppingList;
 	DBHelper dBHelper;
 	ShoppingListCursorAdapter sCursorAdapter;
-	private AlertDialog deleteDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,7 @@ public class ShowShoppingList extends Activity {
 		new Handler().post(new Runnable(){			
 			@Override
 			public void run(){
-				sCursorAdapter = new ShoppingListCursorAdapter(ShowShoppingList.this, dBHelper.listAllList());
+				sCursorAdapter = new ShoppingListCursorAdapter(ShowShoppingList.this, dBHelper.listAllList(), 0);
 				shoppingList.setAdapter(sCursorAdapter);
 			}
 		});
@@ -59,5 +57,23 @@ public class ShowShoppingList extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void onLoadFinished(Loader<Cursor> arg0, Cursor arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onLoaderReset(Loader<Cursor> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -17,9 +17,9 @@ public class ShoppingListCursorAdapter extends CursorAdapter{
 	DBHelper dBHelper;
 	ShowShoppingList showShoppingList;
 	
-	@SuppressWarnings("deprecation")
-	public ShoppingListCursorAdapter(Context context, Cursor c){
-		super(context, c);
+	
+	public ShoppingListCursorAdapter(Context context, Cursor c, int flags){
+		super(context, c, flags);
 		
 		dBHelper = new DBHelper(context);
 		showShoppingList = new ShowShoppingList();

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <item name="CLASBLUE" type="color">#60AFDC</item>
+    <item name="CLASBLUEPRESSED" type="color">#A4D7F5</item>
+    
+</resources>

@@ -120,7 +120,9 @@ int bool abc_config_actionMenuItemAllCaps 0x7f060005
 int bool abc_config_allowActionMenuItemTextWithIcon 0x7f060004
 int bool abc_config_showMenuShortcutsWhenKeyboardPresent 0x7f060003
 int bool abc_split_action_bar_is_narrow 0x7f060002
-int color abc_search_url_text_holo 0x7f070003
+int color CLASBLUE 0x7f070003
+int color CLASBLUEPRESSED 0x7f070004
+int color abc_search_url_text_holo 0x7f070005
 int color abc_search_url_text_normal 0x7f070000
 int color abc_search_url_text_pressed 0x7f070002
 int color abc_search_url_text_selected 0x7f070001
@@ -234,8 +236,10 @@ int drawable abc_textfield_searchview_holo_dark 0x7f020053
 int drawable abc_textfield_searchview_holo_light 0x7f020054
 int drawable abc_textfield_searchview_right_holo_dark 0x7f020055
 int drawable abc_textfield_searchview_right_holo_light 0x7f020056
-int drawable ic_action_delete 0x7f020057
-int drawable ic_launcher 0x7f020058
+int drawable backgroundshape 0x7f020057
+int drawable custom_button 0x7f020058
+int drawable ic_action_delete 0x7f020059
+int drawable ic_launcher 0x7f02005a
 int id action_bar 0x7f05001c
 int id action_bar_activity_content 0x7f050015
 int id action_bar_container 0x7f05001b
@@ -400,6 +404,8 @@ int string title_activity_show_shopping_list 0x7f0a002f
 int string wallText 0x7f0a000e
 int style AppBaseTheme 0x7f0b008b
 int style AppTheme 0x7f0b008c
+int style CustomActionBarTheme 0x7f0b008d
+int style MyActionBar 0x7f0b008e
 int style TextAppearance_AppCompat_Base_CompactMenu_Dialog 0x7f0b0063
 int style TextAppearance_AppCompat_Base_SearchResult 0x7f0b006d
 int style TextAppearance_AppCompat_Base_SearchResult_Subtitle 0x7f0b006f

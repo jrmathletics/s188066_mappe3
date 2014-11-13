@@ -14,7 +14,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="@string/wallText" 
+        android:text="@string/wallText"
+        android:textSize="21sp"
+        android:textColor="#60AFDC"
     />
     
     <ListView
@@ -22,7 +24,9 @@
         android:layout_below="@id/wallTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/backgroundshape"
+        android:cacheColorHint="@android:color/transparent"
     />
        <!-- android:layout_centerHorizontal="true" --> 
     
@@ -34,6 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/thingText"
+        android:textSize="16sp"
+        android:textColor="#60AFDC"
     />
     
     <ListView 
@@ -41,6 +47,8 @@
         android:layout_below="@+id/thingTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/backgroundshape"
+        android:cacheColorHint="@android:color/transparent"
     />
     
     <Button
@@ -49,6 +57,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/setButtonText"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_button"
+        android:textColor="#FFFFFF"
     />
     
      <Button
@@ -56,7 +67,10 @@
         android:layout_below="@+id/setChoicesButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="@string/showShoppingListButtonText"
+        android:background="@drawable/custom_button"
+        android:textColor="#FFFFFF"
     />
     
     <!-- android:layout_centerHorizontal="true" -->    

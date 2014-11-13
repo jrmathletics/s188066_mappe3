@@ -126,14 +126,12 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 	
 	public void lockThingListView(){
-		tListView.setAlpha(75);
-		tListView.setBackgroundColor(Color.GRAY);
+		tListView.setAlpha(0);
 		tListView.setEnabled(false);
 	}
 	
 	public void unlockThingListView(){		
 		tListView.setAlpha(255); 
-		tListView.setBackgroundColor(this.getTitleColor());
 		tListView.setEnabled(true);
 
 	}
