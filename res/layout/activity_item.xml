@@ -38,7 +38,10 @@
         android:layout_below="@+id/productPriceTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="@string/addProductButtonText"
+        android:background="@drawable/custom_button"
+        android:textColor="#FFFFFF"
    	/>
     
     <Button
@@ -46,7 +49,10 @@
         android:layout_below="@+id/addProductButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="@string/showShoppingListButtonText"
+        android:background="@drawable/custom_button"
+        android:textColor="#FFFFFF"
     />
 
 </RelativeLayout>
