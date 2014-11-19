@@ -15,10 +15,11 @@ import android.widget.Toast;
 
 public class ItemActivity extends Activity implements OnClickListener{
 
-	private TextView wallIDTV, thingIDTV, productNameTV, productPriceTV;
-	private DBHelper dBHelper;
-	private String productName, productPrice;
+	private TextView wallIDTV, itemIDTV, productNameTV, productInfoTV, productPriceTV;
+	private DBHandler dBHandler;
+	private String productName, productPrice, productInfo;
 	private Button addProduct, showShoppingList;
+	public long thingId, wallId;
 
 	
 	@Override
@@ -27,43 +28,32 @@ public class ItemActivity extends Activity implements OnClickListener{
 		setContentView(R.layout.activity_item);
 		
 		wallIDTV = (TextView)findViewById(R.id.wallIdTV);
-		thingIDTV = (TextView)findViewById(R.id.thingIdTV);
+		itemIDTV = (TextView)findViewById(R.id.itemIdTV);
 		productNameTV = (TextView)findViewById(R.id.productNameTV);
+		productInfoTV = (TextView)findViewById(R.id.productInfoTV);
 		productPriceTV = (TextView)findViewById(R.id.productPriceTV);
-		dBHelper = new DBHelper(this);
+		dBHandler = new DBHandler(this);
 		
 		addProduct = (Button)findViewById(R.id.addProductButton);
 		addProduct.setOnClickListener(this);
 		showShoppingList = (Button)findViewById(R.id.showShoppingListButton);
 		showShoppingList.setOnClickListener(this);
 		
-		productName = "";
-		productPrice = "";
-
-		
 		Bundle b = new Bundle();
 		b = getIntent().getExtras();
-		long thingId = b.getLong("thing_id");
-		long wallId = b.getLong("wall_id");
-		
-
+		thingId = b.getLong("item_id");
+		wallId = b.getLong("wall_id");
 		
 		String wallIdText = Long.toString(wallId);
 		String thingIdText = Long.toString(thingId);
 		
 		wallIDTV.setText(wallIdText);
-		thingIDTV.setText(thingIdText);
+		itemIDTV.setText(thingIdText);
 		
-		Cursor c = dBHelper.listOne(wallId, thingId);
-		if(c.moveToFirst()){
-			do{
-				productNameTV.setText(c.getString(1));
-				productPriceTV.setText(c.getString(2));
-				productName = c.getString(1);
-				productPrice = c.getString(2);
-			}while(c.moveToNext());
-			
-		}
+		Product p = dBHandler.findProduct(wallId, thingId);
+		productNameTV.setText(p.getProductname());
+		productInfoTV.setText(p.getProductinfo());
+		productPriceTV.setText(p.getPrice());
 
 	}
 
@@ -75,9 +65,8 @@ public class ItemActivity extends Activity implements OnClickListener{
 	}
 	
 	public void addProductToList(){
-		
-		int productPriceInt = Integer.parseInt(productPrice);
-		dBHelper.addListItem(productName, productPriceInt);
+		Product p = dBHandler.findProduct(wallId, thingId);
+		dBHandler.addListItem(new ListItem(p.getProductname(), p.getPrice()));
 	}
 	
 

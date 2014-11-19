@@ -168,11 +168,6 @@ public class DBHelper{
 		db.execSQL("DELETE FROM "+ LIST_TABLE_NAME +" WHERE _id='" + id + "'");
 		return db.delete(LIST_TABLE_NAME, "_id=?", new String[]{Long.toString(id)});
 	}
-	/*
-	public Cursor listOneText(){
-		String buildSQL = "SELECT * FROM " + TEXT_TABLE_NAME;
-		return db.rawQuery(buildSQL, null);
-	}*/
 	
 	
 	private class DatabaseHelper extends SQLiteOpenHelper{

@@ -8,6 +8,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.s188066_mappe3.MainActivity" >
     
+    <android.support.v4.view.ViewPager
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+    
 
     <TextView
         android:id="@+id/wallTV"
@@ -18,22 +24,18 @@
         android:textSize="21sp"
         android:textColor="#60AFDC"
     />
-    
-    <ListView
-        android:id="@+id/wallLV"
+        
+    <Spinner
+        android:id="@+id/wallSpinner"
         android:layout_below="@id/wallTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/backgroundshape"
         android:cacheColorHint="@android:color/transparent"
     />
-       <!-- android:layout_centerHorizontal="true" --> 
-    
-    
     <TextView 
-        android:id="@+id/thingTV"
-        android:layout_below="@id/wallLV"
+        android:id="@+id/itemTV"
+        android:layout_below="@id/wallSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -41,19 +43,18 @@
         android:textSize="16sp"
         android:textColor="#60AFDC"
     />
-    
-    <ListView 
-        android:id="@+id/thingLV"
-        android:layout_below="@+id/thingTV"
+    <Spinner
+        android:id="@+id/itemSpinner"
+        android:layout_below="@id/itemTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/backgroundshape"
+        android:layout_marginBottom="5dp"
         android:cacheColorHint="@android:color/transparent"
     />
     
     <Button
         android:id="@+id/setChoicesButton"
-        android:layout_below="@+id/thingLV"
+        android:layout_below="@id/itemSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/setButtonText"
@@ -72,7 +73,5 @@
         android:background="@drawable/custom_button"
         android:textColor="#FFFFFF"
     />
-    
-    <!-- android:layout_centerHorizontal="true" -->    
 
 </RelativeLayout>
