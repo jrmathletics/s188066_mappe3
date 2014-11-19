@@ -8,8 +8,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.s188066_mappe3.ItemActivity" >
 
+    <ImageView
+        android:id="@+id/productImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:contentDescription="@string/productImageText"
+        />
+    
     <TextView
         android:id="@+id/wallIdTV"
+        android:layout_below="@id/productImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     

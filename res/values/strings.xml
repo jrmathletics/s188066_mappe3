@@ -15,10 +15,13 @@
     <string name="home_tab">Home</string>
     <string name="shopping_tab">Shopping List</string>
     <string name="locate">Locate Store</string>
+    <string name="exitApp">Exit</string>
+    <string name="productImageText">Product Image</string>
 
     <!-- BUTTONS -->
     <string name="setButtonText">Set Choices</string>
     <string name="addProductButtonText">Add Product to Shoppinglist</string>
+    <string name="deleteProductButtonText">Delete Product from Shoppinglist</string>
     <string name="showShoppingListButtonText">Show Shoppinglist</string>
 
     <!-- WALLS -->
@@ -47,8 +50,8 @@
     <string name="productHerculesText">Drywall Hook Hercules</string>
     <string name="productPlasticHardWallText">Plastic Hard Wall Picture Hook</string>
     <string name="productExpansionText">Drywall Expansion Anchor</string>
-    
-    
+
+    <!-- DIV 2 -->
     <string name="title_activity_item">ItemActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_show_shopping_list">ShowShoppingList</string>
@@ -56,7 +59,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_main_fragment">MainFragment</string>
-    
+
     <!-- PRODUCT INFO -->
     <string name="productButterflyTexti">Butterfly Anchor Info</string>
     <string name="productUniversalPCHTexti">Universal Plug W/ Ceiling Hook Info</string>
@@ -69,5 +72,6 @@
     <string name="productHerculesTexti">Drywall Hook Hercules Info</string>
     <string name="productPlasticHardWallTexti">Plastic Hard Wall Picture Hook Info</string>
     <string name="productExpansionTexti">Drywall Expansion Anchor Info</string>
+    <string name="title_activity_see_product">SeeProductActivity</string>
 
 </resources>

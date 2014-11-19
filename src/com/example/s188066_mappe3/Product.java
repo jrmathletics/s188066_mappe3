@@ -7,26 +7,29 @@ public class Product {
 	int price;
 	int wallID;
 	int thingID;
+	String image;
 	
 
 	public Product() {
 	}
 	
-	public Product(String productName, String productInfo, int Price, int wallid, int thingid) {
+	public Product(String productName, String productInfo, int Price, int wallid, int thingid, String Image) {
 		this.productname = productName;
 		this.productinfo = productInfo;
 		this.price = Price;
 		this.wallID = wallid;
 		this.thingID = thingid;
+		this.image = Image;
 	}
 
-	public Product(int iD, String productName, String productInfo, int Price, int wallid, int thingid) {
+	public Product(int iD, String productName, String productInfo, int Price, int wallid, int thingid, String Image) {
 		this.id = iD;
 		this.productname = productName;
 		this.productinfo = productInfo;
 		this.price = Price;
 		this.wallID = wallid;
 		this.thingID = thingid;
+		this.image = Image;
 	}
 
 	int getId() {
@@ -75,6 +78,14 @@ public class Product {
 	
 	void setThingid(int thingid){
 		thingID = thingid;
+	}
+	
+	String getImage(){
+		return image;
+	}
+	
+	void setImage(String img){
+		image = img;
 	}
 		
 

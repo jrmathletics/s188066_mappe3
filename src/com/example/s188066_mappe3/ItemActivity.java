@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ public class ItemActivity extends Activity implements OnClickListener{
 	private DBHandler dBHandler;
 	private String productName, productPrice, productInfo;
 	private Button addProduct, showShoppingList;
+	private ImageView productImage;
 	public long thingId, wallId;
 
 	
@@ -32,6 +34,7 @@ public class ItemActivity extends Activity implements OnClickListener{
 		productNameTV = (TextView)findViewById(R.id.productNameTV);
 		productInfoTV = (TextView)findViewById(R.id.productInfoTV);
 		productPriceTV = (TextView)findViewById(R.id.productPriceTV);
+		productImage = (ImageView)findViewById(R.id.productImageView);
 		dBHandler = new DBHandler(this);
 		
 		addProduct = (Button)findViewById(R.id.addProductButton);
@@ -53,33 +56,39 @@ public class ItemActivity extends Activity implements OnClickListener{
 		Product p = dBHandler.findProduct(wallId, thingId);
 		productNameTV.setText(p.getProductname());
 		productInfoTV.setText(p.getProductinfo());
-		productPriceTV.setText(p.getPrice());
+		productPriceTV.setText(String.valueOf(p.getPrice()));
+		productImage.setImageResource(Integer.parseInt(p.getImage()));
 
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.item, menu);
+		getMenuInflater().inflate(R.menu.action_bar, menu);
 		return true;
 	}
 	
 	public void addProductToList(){
 		Product p = dBHandler.findProduct(wallId, thingId);
-		dBHandler.addListItem(new ListItem(p.getProductname(), p.getPrice()));
+		dBHandler.addListItem(new ListItem(p.getProductname(), p.getPrice(), p.getId()));
 	}
 	
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+		switch (item.getItemId()) {
+    case R.id.shopping_list:
+      	startActivityForResult(new Intent(this, ShowShoppingList.class), 1);	
+          return true;
+    case R.id.shop_locator:
+    		startActivityForResult(new Intent(this, ShowShoppingList.class), 1);
+    		return true;
+    case R.id.exitApp:
+    	setResult(1);
+    	finish();
+    default:
+          return super.onOptionsItemSelected(item);
+    }
 	}
 
 	@Override

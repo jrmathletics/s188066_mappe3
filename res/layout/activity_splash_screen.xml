@@ -14,6 +14,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/clas_ohlson_logo" />
+        android:src="@drawable/clas_ohlson_white_logo" />
+    
+    <TextView
+        android:id="@+id/splashTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/imgLogo"
+        android:text="@string/app_name"
+        android:textSize="40sp"
+        android:textColor="@color/WHITE"
+        />
 
 </RelativeLayout>

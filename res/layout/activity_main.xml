@@ -63,15 +63,5 @@
         android:textColor="#FFFFFF"
     />
     
-     <Button
-        android:id="@id/showShoppingListButton"
-        android:layout_below="@+id/setChoicesButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/showShoppingListButtonText"
-        android:background="@drawable/custom_button"
-        android:textColor="#FFFFFF"
-    />
 
 </RelativeLayout>

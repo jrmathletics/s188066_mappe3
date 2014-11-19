@@ -4,13 +4,14 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -21,7 +22,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity implements OnClickListener {
 	private Spinner wSpinner, iSpinner;
 	private DBHandler dbHandler;
-	private TextView wTextView,tTextView;
+	private TextView wTextView,iTextView;
 	private long wallID, itemID;
 	private WallCursorAdapter wCursorAdapter;
 	private ThingCursorAdapter tCursorAdapter;
@@ -36,13 +37,20 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		Typeface typeFace = Typeface.createFromAsset(getAssets(),"fonts/Helvetica-Bold.ttf");
+		wTextView = (TextView)findViewById(R.id.wallTV);
+		wTextView.setTypeface(typeFace);
+
+		iTextView = (TextView)findViewById(R.id.itemTV);
+		iTextView.setTypeface(typeFace);
+
+		
 		wallID = 0;
 		itemID = 0;
 		setChoices = (Button)findViewById(R.id.setChoicesButton);
+		setChoices.setTypeface(typeFace);
 		setChoices.setOnClickListener(this);
-		
-		showShoppingList = (Button)findViewById(R.id.showShoppingListButton);
-		showShoppingList.setOnClickListener(this);
 		
 		DBHandler dbHandler = new DBHandler(this);
 		if(dbHandler.checkWallDB() == 0)
@@ -56,31 +64,31 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 		if(dbHandler.checkProductDB() == 0)
 		{
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productButterflyText),getResources().getString(R.string.productButterflyTexti), 39, 5, 1));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productButterflyText),getResources().getString(R.string.productButterflyTexti), 39, 4, 1));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productDrywallAnchorText),getResources().getString(R.string.productDrywallAnchorTexti), 49, 4, 2));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productExpansionText),getResources().getString(R.string.productExpansionTexti), 59, 4, 4));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productExpansionText),getResources().getString(R.string.productExpansionTexti), 59, 4, 5));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productHerculesText),getResources().getString(R.string.productHerculesTexti), 19, 4, 3));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productNylonPCHText),getResources().getString(R.string.productNylonPCHTexti), 29, 1, 1));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productNylonPSText),getResources().getString(R.string.productNylonPSTexti), 45, 1, 2));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productNylonPSText),getResources().getString(R.string.productNylonPSTexti), 45, 1, 4));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productNylonPSText),getResources().getString(R.string.productNylonPSTexti), 45, 1, 5));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productNylonPSText),getResources().getString(R.string.productNylonPSTexti), 45, 2, 5));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productNylonPSText),getResources().getString(R.string.productNylonPSTexti), 45, 3, 5));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productPictureHookText),getResources().getString(R.string.productPictureHookTexti), 17, 2, 3));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productPictureHookText),getResources().getString(R.string.productPictureHookTexti), 17, 3, 3));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productPictureHookText),getResources().getString(R.string.productPictureHookTexti), 17, 5, 3));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productPlasticHardWallText),getResources().getString(R.string.productPlasticHardWallTexti), 27, 1, 3));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productScrewText),getResources().getString(R.string.productScrewTexti), 9, 5, 2));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productScrewText),getResources().getString(R.string.productScrewTexti), 9, 5, 4));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productScrewText),getResources().getString(R.string.productScrewTexti), 9, 5, 5));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productUniversalPCHText),getResources().getString(R.string.productUniversalPCHTexti), 29, 2, 1));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productUniversalPCHText),getResources().getString(R.string.productUniversalPCHTexti), 29, 3, 1));
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productUniversalPSText),getResources().getString(R.string.productUniversalPSTexti), 39, 2, 2));			
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productUniversalPSText),getResources().getString(R.string.productUniversalPSTexti), 39, 3, 2));		
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productUniversalPSText),getResources().getString(R.string.productUniversalPSTexti), 39, 2, 4));		
-			dbHandler.addProduct(new Product(getResources().getString(R.string.productUniversalPSText),getResources().getString(R.string.productUniversalPSTexti), 39, 3, 4));	
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productButterflyText),getResources().getString(R.string.productButterflyTexti), 39, 5, 1, String.valueOf(R.drawable.butterflyhook)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productButterflyText),getResources().getString(R.string.productButterflyTexti), 39, 4, 1, String.valueOf(R.drawable.butterflyhook)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productDrywallAnchorText),getResources().getString(R.string.productDrywallAnchorTexti), 49, 4, 2, String.valueOf(R.drawable.drywallanchor)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productExpansionText),getResources().getString(R.string.productExpansionTexti), 59, 4, 4, String.valueOf(R.drawable.expander)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productExpansionText),getResources().getString(R.string.productExpansionTexti), 59, 4, 5, String.valueOf(R.drawable.expander)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productHerculesText),getResources().getString(R.string.productHerculesTexti), 19, 4, 3, String.valueOf(R.drawable.hercules)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productNylonPCHText),getResources().getString(R.string.productNylonPCHTexti), 29, 1, 1, String.valueOf(R.drawable.hook_w_plug)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productNylonPSText),getResources().getString(R.string.productNylonPSTexti), 45, 1, 2, String.valueOf(R.drawable.screw_w_plug)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productNylonPSText),getResources().getString(R.string.productNylonPSTexti), 45, 1, 4, String.valueOf(R.drawable.screw_w_plug)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productNylonPSText),getResources().getString(R.string.productNylonPSTexti), 45, 1, 5, String.valueOf(R.drawable.screw_w_plug)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productNylonPSText),getResources().getString(R.string.productNylonPSTexti), 45, 2, 5, String.valueOf(R.drawable.screw_w_plug)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productNylonPSText),getResources().getString(R.string.productNylonPSTexti), 45, 3, 5, String.valueOf(R.drawable.screw_w_plug)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productPictureHookText),getResources().getString(R.string.productPictureHookTexti), 17, 2, 3, String.valueOf(R.drawable.xhook)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productPictureHookText),getResources().getString(R.string.productPictureHookTexti), 17, 3, 3, String.valueOf(R.drawable.xhook)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productPictureHookText),getResources().getString(R.string.productPictureHookTexti), 17, 5, 3, String.valueOf(R.drawable.xhook)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productPlasticHardWallText),getResources().getString(R.string.productPlasticHardWallTexti), 27, 1, 3, String.valueOf(R.drawable.xbhook)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productScrewText),getResources().getString(R.string.productScrewTexti), 9, 5, 2, String.valueOf(R.drawable.screw)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productScrewText),getResources().getString(R.string.productScrewTexti), 9, 5, 4, String.valueOf(R.drawable.screw)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productScrewText),getResources().getString(R.string.productScrewTexti), 9, 5, 5, String.valueOf(R.drawable.screw)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productUniversalPCHText),getResources().getString(R.string.productUniversalPCHTexti), 29, 2, 1, String.valueOf(R.drawable.hook_w_universalplug)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productUniversalPCHText),getResources().getString(R.string.productUniversalPCHTexti), 29, 3, 1, String.valueOf(R.drawable.hook_w_universalplug)));
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productUniversalPSText),getResources().getString(R.string.productUniversalPSTexti), 39, 2, 2, String.valueOf(R.drawable.screw_w_universalplug)));			
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productUniversalPSText),getResources().getString(R.string.productUniversalPSTexti), 39, 3, 2, String.valueOf(R.drawable.screw_w_universalplug)));		
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productUniversalPSText),getResources().getString(R.string.productUniversalPSTexti), 39, 2, 4, String.valueOf(R.drawable.screw_w_universalplug)));		
+			dbHandler.addProduct(new Product(getResources().getString(R.string.productUniversalPSText),getResources().getString(R.string.productUniversalPSTexti), 39, 3, 4, String.valueOf(R.drawable.screw_w_universalplug)));	
 		}
 		if(dbHandler.checkItemDB() == 0)
 		{
@@ -103,6 +111,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				id++;
+				System.out.println(id);
 				wallID = id;
 				
 			}
@@ -121,6 +130,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				id++;
+				System.out.println(id);
 				itemID = id;
 				
 			}
@@ -148,7 +158,11 @@ public class MainActivity extends Activity implements OnClickListener {
         	startActivityForResult(new Intent(this, ShowShoppingList.class), 1);	
             return true;
 	    case R.id.shop_locator:
-	    	startActivityForResult(new Intent(this, ShowShoppingList.class), 1);
+	    		startActivityForResult(new Intent(this, ShowShoppingList.class), 1);
+	    		return true;
+	    case R.id.exitApp:
+	    	finish();
+	    	return true;
 	    default:
             return super.onOptionsItemSelected(item);
 	    }
@@ -167,11 +181,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			Intent startIntent = new Intent(this, ItemActivity.class);
 			startIntent.putExtra("item_id", itemID);
 			startIntent.putExtra("wall_id", wallID);
-			this.startActivityForResult(startIntent, 1);
-		}
-		else if (v.getId() == R.id.showShoppingListButton)
-		{
-			Intent startIntent = new Intent(this, ShowShoppingList.class);
 			this.startActivityForResult(startIntent, 1);
 		}
 	}

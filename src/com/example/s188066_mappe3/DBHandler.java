@@ -13,7 +13,7 @@ import android.util.Log;
 
 public class DBHandler extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 5;
 	private static final String DATABASE_NAME = "skruevelgernDB.db";
 
 	public static final String WALL_TABLE_NAME = "walls";
@@ -31,11 +31,13 @@ public class DBHandler extends SQLiteOpenHelper {
 	public static final String PRODUCT_TABLE_COLUMN_PRICE = "price";
 	public static final String PRODUCT_TABLE_COLUMN_WID = "wall_id";
 	public static final String PRODUCT_TABLE_COLUMN_TID = "thing_id";
+	public static final String PRODUCT_TABLE_COLUMN_IMAGE = "image";
 
 	public static final String LIST_TABLE_NAME = "list";
 	public static final String LIST_TABLE_COLUMN_ID = "_id";
 	public static final String LIST_TABLE_COLUMN_NAME = "productname";
 	public static final String LIST_TABLE_COLUMN_PRICE = "price";
+	public static final String LIST_TABLE_COLUMN_PRODUCTID = "productid";
 	private SQLiteDatabase db;
 
 	public DBHandler(Context context) {
@@ -105,8 +107,31 @@ public class DBHandler extends SQLiteOpenHelper {
 		values.put(PRODUCT_TABLE_COLUMN_PRICE, product.getPrice());
 		values.put(PRODUCT_TABLE_COLUMN_WID, product.getWallid());
 		values.put(PRODUCT_TABLE_COLUMN_TID, product.getThingid());
+		values.put(PRODUCT_TABLE_COLUMN_IMAGE, product.getImage());
 		db.insert(PRODUCT_TABLE_NAME, null, values);
 		db.close();
+	}
+	
+	public List<Product> findAllProducts() {
+		List<Product> productList = new ArrayList<Product>();
+		String selectQuery = "SELECT * FROM " + PRODUCT_TABLE_NAME;
+		open();
+		Cursor cursor = db.rawQuery(selectQuery, null);
+		if (cursor.moveToFirst()) {
+			do {
+				Product product = new Product();
+				product.setId(Integer.parseInt(cursor.getString(0)));
+				product.setProductname(cursor.getString(1));
+				product.setProductinfo(cursor.getString(2));
+				product.setPrice(Integer.parseInt(cursor.getString(3)));
+				product.setWallid(Integer.parseInt(cursor.getString(4)));
+				product.setThingid(Integer.parseInt(cursor.getString(5)));
+				product.setImage(cursor.getString(6));
+				productList.add(product);
+			} while (cursor.moveToNext());
+		}
+		db.close();
+		return productList;
 	}
 
 	public void addListItem(ListItem listitem) {
@@ -114,6 +139,7 @@ public class DBHandler extends SQLiteOpenHelper {
 		ContentValues values = new ContentValues();
 		values.put(LIST_TABLE_COLUMN_NAME, listitem.getListItemname());
 		values.put(LIST_TABLE_COLUMN_PRICE, listitem.getPrice());
+		values.put(LIST_TABLE_COLUMN_PRODUCTID, listitem.getProductID());
 		db.insert(LIST_TABLE_NAME, null, values);
 		db.close();
 	}
@@ -129,6 +155,7 @@ public class DBHandler extends SQLiteOpenHelper {
 				listitem.setId(Integer.parseInt(cursor.getString(0)));
 				listitem.setListItemname(cursor.getString(1));
 				listitem.setPrice(Integer.parseInt(cursor.getString(2)));
+				listitem.setProductID(Integer.parseInt(cursor.getString(3)));
 				listItemList.add(listitem);
 			} while (cursor.moveToNext());
 		}
@@ -177,17 +204,32 @@ public class DBHandler extends SQLiteOpenHelper {
 		open();
 		Cursor cursor = db.query(PRODUCT_TABLE_NAME, new String[] { PRODUCT_TABLE_COLUMN_ID, PRODUCT_TABLE_COLUMN_NAME,
 				PRODUCT_TABLE_COLUMN_INFO, PRODUCT_TABLE_COLUMN_PRICE, PRODUCT_TABLE_COLUMN_WID,
-				PRODUCT_TABLE_COLUMN_TID}, PRODUCT_TABLE_COLUMN_WID + "=?" + " AND " +
+				PRODUCT_TABLE_COLUMN_TID, PRODUCT_TABLE_COLUMN_IMAGE}, PRODUCT_TABLE_COLUMN_WID + "=?" + " AND " +
 				PRODUCT_TABLE_COLUMN_TID + "=?", new String[]{String.valueOf(wID), String.valueOf(tID)}, null, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
 		Product product = new Product(Integer.parseInt(cursor.getString(0)),
 				cursor.getString(1), cursor.getString(2), 
 				Integer.parseInt(cursor.getString(3)), 
-				Integer.parseInt(cursor.getString(4)), Integer.parseInt(cursor.getString(5)));
+				Integer.parseInt(cursor.getString(4)), Integer.parseInt(cursor.getString(5)), cursor.getString(6));
 	
 		return product;
+	}
 	
+	public Product findProduct(long id){
+		open();
+		Product product = new Product();
+		Cursor cursor = db.query(PRODUCT_TABLE_NAME, new String[] { PRODUCT_TABLE_COLUMN_ID, PRODUCT_TABLE_COLUMN_NAME,
+				PRODUCT_TABLE_COLUMN_INFO, PRODUCT_TABLE_COLUMN_PRICE, PRODUCT_TABLE_COLUMN_WID,
+				PRODUCT_TABLE_COLUMN_TID, PRODUCT_TABLE_COLUMN_IMAGE}, PRODUCT_TABLE_COLUMN_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
+		if(cursor != null && cursor.moveToFirst()){
+		product = new Product(Integer.parseInt(cursor.getString(0)),
+				cursor.getString(1), cursor.getString(2), 
+				Integer.parseInt(cursor.getString(3)), 
+				Integer.parseInt(cursor.getString(4)), Integer.parseInt(cursor.getString(5)), cursor.getString(6));
+		cursor.close();
+		}
+		return product;
 	}
 	
 	public int countListItems(){
@@ -217,11 +259,12 @@ public class DBHandler extends SQLiteOpenHelper {
 				+ PRODUCT_TABLE_COLUMN_INFO + " TEXT, "
 				+ PRODUCT_TABLE_COLUMN_PRICE + " INTEGER, "
 				+ PRODUCT_TABLE_COLUMN_WID + " INTEGER, "
-				+ PRODUCT_TABLE_COLUMN_TID + " INTEGER )";
+				+ PRODUCT_TABLE_COLUMN_TID + " INTEGER, "
+				+ PRODUCT_TABLE_COLUMN_IMAGE + " TEXT )";
 
 		String CREATE_LIST_TABLE = "CREATE TABLE " + LIST_TABLE_NAME + "( "
 				+ LIST_TABLE_COLUMN_ID + " INTEGER PRIMARY KEY, "
-				+ LIST_TABLE_COLUMN_NAME + " TEXT, " + LIST_TABLE_COLUMN_PRICE
+				+ LIST_TABLE_COLUMN_NAME + " TEXT, " + LIST_TABLE_COLUMN_PRICE + " INTEGER, " + LIST_TABLE_COLUMN_PRODUCTID 
 				+ " INTEGER )";
 
 		Log.d("SQL", CREATE_PRODUCTS_TABLE);

@@ -4,20 +4,23 @@ public class ListItem {
 	int id;
 	String listitemname;
 	int price;
+	int productid;
 	
 
 	public ListItem() {
 	}
 	
-	public ListItem(String listitemName, int Price) {
+	public ListItem(String listitemName, int Price, int productID) {
 		this.listitemname = listitemName;
 		this.price = Price;
+		this.productid = productID;
 	}
 
-	public ListItem(int iD, String listitemName, int Price) {
+	public ListItem(int iD, String listitemName, int Price, int productID) {
 		this.id = iD;
 		this.listitemname = listitemName;
 		this.price = Price;
+		this.productid = productID;
 	}
 
 	int getId() {
@@ -44,9 +47,17 @@ public class ListItem {
 		price = pprice;
 	}
 	
+	int getProductID(){
+		return productid;
+	}
+	
+	void setProductID(int pID){
+		productid = pID;
+	}
+	
 	@Override
 	public String toString() {
-	    return this.id + ". " + this.listitemname + "[" + this.price + "kr]";
+	    return this.id + ". " + this.listitemname + " [" + this.price + "kr]";
 	}
 
 }

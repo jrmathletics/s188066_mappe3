@@ -4,9 +4,17 @@
     tools:context="com.example.s188066_mappe3.ShowShoppingList" >
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
+	    android:id="@+id/shop_locator"
+	    android:icon="@drawable/ic_action_place"
+	    android:title="@string/locate"
+	    android:showAsAction="always"
+	/>
+	
+	<item
+	    android:id="@+id/exitApp"
+	    android:icon="@drawable/ic_action_remove"
+	    android:title="@string/exitApp"
+	    android:showAsAction="always"
+	/>
 
 </menu>

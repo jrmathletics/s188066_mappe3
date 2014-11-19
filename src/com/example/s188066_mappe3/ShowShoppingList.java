@@ -1,43 +1,62 @@
 package com.example.s188066_mappe3;
 
+import java.util.List;
+
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.os.Handler;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class ShowShoppingList extends Activity implements LoaderCallbacks<Cursor> {
+public class ShowShoppingList extends Activity{
 	
-	ListView shoppingList;
-	DBHelper dBHelper;
-	ShoppingListCursorAdapter sCursorAdapter;
+	public List<ListItem> listitems;
+	public DBHandler dBHandler;
+	public ShoppingListCursorAdapter sCursorAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_shopping_list);
 		
-		dBHelper = new DBHelper(this);
+		dBHandler = new DBHandler(this);
 		
-		shoppingList = (ListView)findViewById(R.id.shoppingListLV);
+		listitems = dBHandler.findAllListItems();
+		final ListView shoppingList = (ListView)findViewById(R.id.shoppingListLV);
+		ArrayAdapter<ListItem> adapter = new ArrayAdapter<ListItem>(this, android.R.layout.simple_list_item_1, listitems);
+		shoppingList.setAdapter(adapter);
+		shoppingList.setOnItemClickListener(new OnItemClickListener(){
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long id) {
+				long productid;
+				ListItem li = (ListItem) shoppingList.getItemAtPosition(position);
+				productid = li.getProductID();
+				System.out.println(productid);
+				Intent intent = new Intent(ShowShoppingList.this, SeeProductActivity.class);
+				intent.putExtra("product_id", productid);
+				startActivityForResult(intent, 1);
+			}
+			
+		});
 		
-		run();
 	}
 	
-	public void run(){
-		new Handler().post(new Runnable(){			
-			@Override
-			public void run(){
-				sCursorAdapter = new ShoppingListCursorAdapter(ShowShoppingList.this, dBHelper.listAllList(), 0);
-				shoppingList.setAdapter(sCursorAdapter);
-			}
-		});
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if(resultCode==1){
+			setResult(1);
+			finish();
+		}
 	}
 
 	@Override
@@ -52,28 +71,17 @@ public class ShowShoppingList extends Activity implements LoaderCallbacks<Cursor
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
-	@Override
-	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void onLoadFinished(Loader<Cursor> arg0, Cursor arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onLoaderReset(Loader<Cursor> arg0) {
-		// TODO Auto-generated method stub
+		switch (item.getItemId()) {
+    // Respond to the action bar's Up/Home button
+    case android.R.id.home:
+        NavUtils.navigateUpFromSameTask(this);
+        return true;
+    case R.id.exitApp:
+    		setResult(1);
+    		finish();
+    default:
+    		return super.onOptionsItemSelected(item);
+    }
 		
 	}
 }
