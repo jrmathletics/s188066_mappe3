@@ -19,7 +19,7 @@ public class ItemActivity extends Activity implements OnClickListener{
 	private TextView wallIDTV, itemIDTV, productNameTV, productInfoTV, productPriceTV;
 	private DBHandler dBHandler;
 	private String productName, productPrice, productInfo;
-	private Button addProduct, showShoppingList;
+	private Button addProduct;
 	private ImageView productImage;
 	public long thingId, wallId;
 
@@ -39,8 +39,6 @@ public class ItemActivity extends Activity implements OnClickListener{
 		
 		addProduct = (Button)findViewById(R.id.addProductButton);
 		addProduct.setOnClickListener(this);
-		showShoppingList = (Button)findViewById(R.id.showShoppingListButton);
-		showShoppingList.setOnClickListener(this);
 		
 		Bundle b = new Bundle();
 		b = getIntent().getExtras();
@@ -103,12 +101,6 @@ public class ItemActivity extends Activity implements OnClickListener{
 		{
 			addProductToList();
 			productToast.show();
-		}
-		else if(v.getId() == R.id.showShoppingListButton)
-		{
-			Intent startIntent = new Intent(this, ShowShoppingList.class);
-			this.startActivityForResult(startIntent, 1);
-
 		}
 	}
 }

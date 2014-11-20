@@ -9,7 +9,8 @@
     <!-- DIV -->
     <string name="action_settings">Settings</string>
     <string name="currencyText">Kr</string>
-    <string name="productAddedText">Producted added to shoppinglist</string>
+    <string name="productAddedText">Product added to shoppinglist</string>
+    <string name="productDeletedText">Product deleted from shoppinglist</string>
     <string name="deleteTitle">Delete Item</string>
     <string name="deleteText">Do you want to delete the item?</string>
     <string name="home_tab">Home</string>
@@ -17,6 +18,7 @@
     <string name="locate">Locate Store</string>
     <string name="exitApp">Exit</string>
     <string name="productImageText">Product Image</string>
+    <string name="emptyShoppingListText">The Shopping List Is Empty :(</string>
 
     <!-- BUTTONS -->
     <string name="setButtonText">Set Choices</string>

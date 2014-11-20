@@ -63,34 +63,34 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int action_settings=0x7f09001f;
         public static final int addProductButton=0x7f090006;
         public static final int currencyTextView=0x7f090019;
-        public static final int deleteProductButton=0x7f090012;
+        public static final int deleteProductButton=0x7f090011;
         public static final int deleteRowImageButton=0x7f09001a;
+        public static final int emptyListTV=0x7f090013;
         public static final int exitApp=0x7f09001e;
         public static final int imgLogo=0x7f090014;
         public static final int itemIdTV=0x7f090002;
-        public static final int itemSpinner=0x7f09000c;
-        public static final int itemTV=0x7f09000b;
-        public static final int pager=0x7f090008;
+        public static final int itemSpinner=0x7f09000b;
+        public static final int itemTV=0x7f09000a;
+        public static final int pager=0x7f090007;
         public static final int productImageView=0x7f090000;
         public static final int productInfoTV=0x7f090004;
         public static final int productNameTV=0x7f090003;
         public static final int productNameTextView=0x7f090017;
         public static final int productPriceTV=0x7f090005;
         public static final int productPriceTextView=0x7f090018;
-        public static final int setChoicesButton=0x7f09000d;
+        public static final int setChoicesButton=0x7f09000c;
         public static final int shop_locator=0x7f09001d;
-        public static final int shoppingListLV=0x7f090013;
+        public static final int shoppingListLV=0x7f090012;
         public static final int shopping_list=0x7f09001c;
-        public static final int shoppinglistProductImageView=0x7f09000e;
-        public static final int shoppinglistProductInfoTV=0x7f090010;
-        public static final int shoppinglistProductNameTV=0x7f09000f;
-        public static final int shoppinglistProductPriceTV=0x7f090011;
-        public static final int showShoppingListButton=0x7f090007;
+        public static final int shoppinglistProductImageView=0x7f09000d;
+        public static final int shoppinglistProductInfoTV=0x7f09000f;
+        public static final int shoppinglistProductNameTV=0x7f09000e;
+        public static final int shoppinglistProductPriceTV=0x7f090010;
         public static final int splashTV=0x7f090015;
         public static final int thingTextView=0x7f09001b;
         public static final int wallIdTV=0x7f090001;
-        public static final int wallSpinner=0x7f09000a;
-        public static final int wallTV=0x7f090009;
+        public static final int wallSpinner=0x7f090009;
+        public static final int wallTV=0x7f090008;
         public static final int walltypeTextView=0x7f090016;
     }
     public static final class layout {
@@ -115,78 +115,80 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /**  DIV 
          */
         public static final int action_settings=0x7f060003;
-        public static final int addProductButtonText=0x7f06000e;
+        public static final int addProductButtonText=0x7f060010;
         /**  MAINACTIVITY 
          */
         public static final int app_name=0x7f060000;
-        public static final int bMirrorFrameText=0x7f060019;
+        public static final int bMirrorFrameText=0x7f06001b;
         /**  WALLS 
  WALLS 
          */
-        public static final int bWallText=0x7f060011;
-        public static final int closetText=0x7f06001a;
+        public static final int bWallText=0x7f060013;
+        public static final int closetText=0x7f06001c;
         public static final int currencyText=0x7f060004;
-        public static final int curtainText=0x7f060017;
-        public static final int deleteProductButtonText=0x7f06000f;
-        public static final int deleteText=0x7f060007;
-        public static final int deleteTitle=0x7f060006;
-        public static final int dummy_button=0x7f06002a;
-        public static final int dummy_content=0x7f06002b;
-        public static final int exitApp=0x7f06000b;
-        public static final int gWallText=0x7f060014;
-        public static final int hello_world=0x7f060027;
-        public static final int home_tab=0x7f060008;
+        public static final int curtainText=0x7f060019;
+        public static final int deleteProductButtonText=0x7f060011;
+        public static final int deleteText=0x7f060008;
+        public static final int deleteTitle=0x7f060007;
+        public static final int dummy_button=0x7f06002c;
+        public static final int dummy_content=0x7f06002d;
+        public static final int emptyShoppingListText=0x7f06000e;
+        public static final int exitApp=0x7f06000c;
+        public static final int gWallText=0x7f060016;
+        public static final int hello_world=0x7f060029;
+        public static final int home_tab=0x7f060009;
         /**  THINGS 
  THINGS 
          */
-        public static final int lampText=0x7f060016;
-        public static final int llWallText=0x7f060013;
-        public static final int locate=0x7f06000a;
+        public static final int lampText=0x7f060018;
+        public static final int llWallText=0x7f060015;
+        public static final int locate=0x7f06000b;
         public static final int productAddedText=0x7f060005;
         /**  PRODUCTS 
  PRODUCTS 
          */
-        public static final int productButterflyText=0x7f06001b;
+        public static final int productButterflyText=0x7f06001d;
         /**  PRODUCT INFO 
          */
-        public static final int productButterflyTexti=0x7f06002d;
-        public static final int productDrywallAnchorText=0x7f06001f;
-        public static final int productDrywallAnchorTexti=0x7f060031;
-        public static final int productExpansionText=0x7f060025;
-        public static final int productExpansionTexti=0x7f060037;
-        public static final int productHerculesText=0x7f060023;
-        public static final int productHerculesTexti=0x7f060035;
-        public static final int productImageText=0x7f06000c;
-        public static final int productNylonPCHText=0x7f06001d;
-        public static final int productNylonPCHTexti=0x7f06002f;
-        public static final int productNylonPSText=0x7f060021;
-        public static final int productNylonPSTexti=0x7f060033;
-        public static final int productPictureHookText=0x7f060022;
-        public static final int productPictureHookTexti=0x7f060034;
-        public static final int productPlasticHardWallText=0x7f060024;
-        public static final int productPlasticHardWallTexti=0x7f060036;
-        public static final int productScrewText=0x7f06001e;
-        public static final int productScrewTexti=0x7f060030;
-        public static final int productUniversalPCHText=0x7f06001c;
-        public static final int productUniversalPCHTexti=0x7f06002e;
-        public static final int productUniversalPSText=0x7f060020;
-        public static final int productUniversalPSTexti=0x7f060032;
-        public static final int sMirrorFrameText=0x7f060018;
-        public static final int sWallText=0x7f060015;
+        public static final int productButterflyTexti=0x7f06002f;
+        public static final int productDeletedText=0x7f060006;
+        public static final int productDrywallAnchorText=0x7f060021;
+        public static final int productDrywallAnchorTexti=0x7f060033;
+        public static final int productExpansionText=0x7f060027;
+        public static final int productExpansionTexti=0x7f060039;
+        public static final int productHerculesText=0x7f060025;
+        public static final int productHerculesTexti=0x7f060037;
+        public static final int productImageText=0x7f06000d;
+        public static final int productNylonPCHText=0x7f06001f;
+        public static final int productNylonPCHTexti=0x7f060031;
+        public static final int productNylonPSText=0x7f060023;
+        public static final int productNylonPSTexti=0x7f060035;
+        public static final int productPictureHookText=0x7f060024;
+        public static final int productPictureHookTexti=0x7f060036;
+        public static final int productPlasticHardWallText=0x7f060026;
+        public static final int productPlasticHardWallTexti=0x7f060038;
+        public static final int productScrewText=0x7f060020;
+        public static final int productScrewTexti=0x7f060032;
+        public static final int productUniversalPCHText=0x7f06001e;
+        public static final int productUniversalPCHTexti=0x7f060030;
+        public static final int productUniversalPSText=0x7f060022;
+        public static final int productUniversalPSTexti=0x7f060034;
+        public static final int sMirrorFrameText=0x7f06001a;
+        public static final int sWallText=0x7f060017;
         /**  BUTTONS 
          */
-        public static final int setButtonText=0x7f06000d;
-        public static final int shopping_tab=0x7f060009;
-        public static final int showShoppingListButtonText=0x7f060010;
-        public static final int thWallText=0x7f060012;
+        public static final int setButtonText=0x7f06000f;
+        public static final int shopping_tab=0x7f06000a;
+        public static final int showShoppingListButtonText=0x7f060012;
+        public static final int thWallText=0x7f060014;
         public static final int thingText=0x7f060002;
         /**  DIV 2 
          */
-        public static final int title_activity_item=0x7f060026;
-        public static final int title_activity_main_fragment=0x7f06002c;
-        public static final int title_activity_see_product=0x7f060038;
-        public static final int title_activity_show_shopping_list=0x7f060028;
-        public static final int title_activity_splash_screen=0x7f060029;
+        public static final int title_activity_item=0x7f060028;
+        public static final int title_activity_main_fragment=0x7f06002e;
+        public static final int title_activity_see_product=0x7f06003a;
+        public static final int title_activity_show_shopping_list=0x7f06002a;
+        public static final int title_activity_splash_screen=0x7f06002b;
         public static final int wallText=0x7f060001;
     }
     public static final class style {

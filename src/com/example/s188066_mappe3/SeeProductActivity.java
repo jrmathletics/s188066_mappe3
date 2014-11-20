@@ -1,6 +1,7 @@
 package com.example.s188066_mappe3;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SeeProductActivity extends Activity implements OnClickListener {
 	
@@ -18,6 +20,7 @@ public class SeeProductActivity extends Activity implements OnClickListener {
 	private Button deleteProduct;
 	private DBHandler dBHandler;
 	private Product product;
+	private ListItem listitem;
 
 
 	@Override
@@ -32,6 +35,7 @@ public class SeeProductActivity extends Activity implements OnClickListener {
 		
 		
 		deleteProduct = (Button)findViewById(R.id.deleteProductButton);
+		deleteProduct.setOnClickListener(this);
 		
 		dBHandler = new DBHandler(this);
 		Bundle b = new Bundle();
@@ -48,7 +52,14 @@ public class SeeProductActivity extends Activity implements OnClickListener {
 		productPriceTV.setText(String.valueOf(product.getPrice()));
 		productImage.setImageResource(Integer.parseInt(product.getImage()));
 		
-		
+	}
+	
+	public void delete(){
+		Bundle b = new Bundle();
+		b = getIntent().getExtras();
+		final long id = b.getLong("listitem_id");
+		listitem = dBHandler.findListItem(id);
+		dBHandler.deleteListItem(listitem);
 	}
 
 	@Override
@@ -74,8 +85,16 @@ public class SeeProductActivity extends Activity implements OnClickListener {
 	}
 
 	@Override
-	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
-		
+	public void onClick(View v) {
+		Context context = getApplicationContext();
+
+		CharSequence productDeleted = getString(R.string.productDeletedText);
+		int duration = Toast.LENGTH_SHORT;
+		Toast productToast = Toast.makeText(context, productDeleted, duration);
+		if(v.getId() == R.id.deleteProductButton){
+			delete();
+			NavUtils.navigateUpFromSameTask(this);
+			productToast.show();
+		}		
 	}
 }

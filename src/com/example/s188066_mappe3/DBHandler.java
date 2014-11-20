@@ -13,7 +13,7 @@ import android.util.Log;
 
 public class DBHandler extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 5;
+	private static final int DATABASE_VERSION = 6;
 	private static final String DATABASE_NAME = "skruevelgernDB.db";
 
 	public static final String WALL_TABLE_NAME = "walls";
@@ -144,6 +144,21 @@ public class DBHandler extends SQLiteOpenHelper {
 		db.close();
 	}
 	
+	public ListItem findListItem(long id){
+		open();
+		ListItem listitem = new ListItem();
+		Cursor cursor = db.query(LIST_TABLE_NAME, new String[] { LIST_TABLE_COLUMN_ID, LIST_TABLE_COLUMN_NAME,
+				LIST_TABLE_COLUMN_PRICE, LIST_TABLE_COLUMN_PRODUCTID}, LIST_TABLE_COLUMN_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
+		if(cursor != null && cursor.moveToFirst()){
+		listitem = new ListItem(Integer.parseInt(cursor.getString(0)),
+				cursor.getString(1), Integer.parseInt(cursor.getString(2)), 
+				Integer.parseInt(cursor.getString(3)));
+		cursor.close();
+		}
+		return listitem;
+		
+	}
+	
 	public List<ListItem> findAllListItems() {
 		List<ListItem> listItemList = new ArrayList<ListItem>();
 		String selectQuery = "SELECT * FROM " + LIST_TABLE_NAME;
@@ -240,6 +255,12 @@ public class DBHandler extends SQLiteOpenHelper {
 		if (c.moveToFirst())
 		    counter = c.getInt(0);	
 		return counter;
+	}
+	
+	public void deleteListItem(ListItem listitem){
+		open();
+		db.delete(LIST_TABLE_NAME, LIST_TABLE_COLUMN_ID + " =?",new String[]{ String.valueOf(listitem.getId())});
+		db.close();
 	}
 	
 

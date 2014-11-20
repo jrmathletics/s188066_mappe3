@@ -3,10 +3,7 @@ package com.example.s188066_mappe3;
 import java.util.List;
 
 import android.app.Activity;
-import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Intent;
-import android.content.Loader;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
@@ -16,12 +13,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class ShowShoppingList extends Activity{
 	
 	public List<ListItem> listitems;
 	public DBHandler dBHandler;
 	public ShoppingListCursorAdapter sCursorAdapter;
+	public TextView emptyListTV;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +28,11 @@ public class ShowShoppingList extends Activity{
 		setContentView(R.layout.activity_show_shopping_list);
 		
 		dBHandler = new DBHandler(this);
+		emptyListTV = (TextView)findViewById(R.id.emptyListTV);
+		
+		if(dBHandler.countListItems() != 0){
+			emptyListTV.setVisibility(View.INVISIBLE);
+		}
 		
 		listitems = dBHandler.findAllListItems();
 		final ListView shoppingList = (ListView)findViewById(R.id.shoppingListLV);
@@ -39,12 +43,13 @@ public class ShowShoppingList extends Activity{
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
-				long productid;
+				long productid, listitemid;
 				ListItem li = (ListItem) shoppingList.getItemAtPosition(position);
 				productid = li.getProductID();
-				System.out.println(productid);
+				listitemid = li.getId();
 				Intent intent = new Intent(ShowShoppingList.this, SeeProductActivity.class);
 				intent.putExtra("product_id", productid);
+				intent.putExtra("listitem_id", listitemid);
 				startActivityForResult(intent, 1);
 			}
 			

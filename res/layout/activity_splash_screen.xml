@@ -13,7 +13,7 @@
         android:id="@+id/imgLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/clas_ohlson_white_logo" />
     
     <TextView
