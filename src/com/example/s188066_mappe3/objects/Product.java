@@ -1,4 +1,4 @@
-package com.example.s188066_mappe3;
+package com.example.s188066_mappe3.objects;
 
 public class Product {
 	int id;
@@ -8,12 +8,12 @@ public class Product {
 	int wallID;
 	int thingID;
 	String image;
-	
 
 	public Product() {
 	}
-	
-	public Product(String productName, String productInfo, int Price, int wallid, int thingid, String Image) {
+
+	public Product(String productName, String productInfo, int Price, int wallid,
+			int thingid, String Image) {
 		this.productname = productName;
 		this.productinfo = productInfo;
 		this.price = Price;
@@ -22,7 +22,8 @@ public class Product {
 		this.image = Image;
 	}
 
-	public Product(int iD, String productName, String productInfo, int Price, int wallid, int thingid, String Image) {
+	public Product(int iD, String productName, String productInfo, int Price,
+			int wallid, int thingid, String Image) {
 		this.id = iD;
 		this.productname = productName;
 		this.productinfo = productInfo;
@@ -32,61 +33,60 @@ public class Product {
 		this.image = Image;
 	}
 
-	int getId() {
+	public int getId() {
 		return id;
 	}
 
-	void setId(int productid) {
+	public void setId(int productid) {
 		id = productid;
 	}
 
-	String getProductname() {
+	public String getProductname() {
 		return productname;
 	}
 
-	void setProductname(String productn) {
+	public void setProductname(String productn) {
 		productname = productn;
 	}
-	
-	String getProductinfo(){
+
+	public String getProductinfo() {
 		return productinfo;
 	}
-	
-	void setProductinfo(String producti){
+
+	public void setProductinfo(String producti) {
 		productinfo = producti;
 	}
-	
-	int getPrice(){
+
+	public int getPrice() {
 		return price;
 	}
-	
-	void setPrice(int pprice){
+
+	public void setPrice(int pprice) {
 		price = pprice;
 	}
-	
-	int getWallid(){
+
+	public int getWallid() {
 		return wallID;
 	}
-	
-	void setWallid(int wallid){
+
+	public void setWallid(int wallid) {
 		wallID = wallid;
 	}
-	
-	int getThingid(){
+
+	public int getThingid() {
 		return thingID;
 	}
-	
-	void setThingid(int thingid){
+
+	public void setThingid(int thingid) {
 		thingID = thingid;
 	}
-	
-	String getImage(){
+
+	public String getImage() {
 		return image;
 	}
-	
-	void setImage(String img){
+
+	public void setImage(String img) {
 		image = img;
 	}
-		
 
 }

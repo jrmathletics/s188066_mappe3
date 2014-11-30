@@ -2,6 +2,9 @@ package com.example.s188066_mappe3;
 
 import java.util.List;
 
+import com.example.s188066_mappe3.database.DBHandler;
+import com.example.s188066_mappe3.objects.ListItem;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
@@ -42,10 +45,9 @@ public class ShowShoppingList extends Activity {
 		shoppingList.setVisibility(View.INVISIBLE);
 		countTV.setVisibility(View.INVISIBLE);
 		totalTV = (TextView) findViewById(R.id.totalTV);
-		totalTextTV = (TextView)findViewById(R.id.totalTextTV);
+		totalTextTV = (TextView) findViewById(R.id.totalTextTV);
 		totalTextTV.setVisibility(View.INVISIBLE);
 		totalTV.setVisibility(View.INVISIBLE);
-		
 
 		if (dBHandler.countListItems() != 0) {
 			emptyListTV.setVisibility(View.INVISIBLE);
@@ -56,17 +58,17 @@ public class ShowShoppingList extends Activity {
 		}
 
 		listitems = dBHandler.findAllListItems();
-		
+
 		ArrayAdapter<ListItem> adapter = new ArrayAdapter<ListItem>(this,
 				R.layout.trow, listitems);
 		shoppingList.setAdapter(adapter);
-		
-		for(ListItem item : listitems)
-		{
+
+		for (ListItem item : listitems) {
 			total += item.getPrice();
 		}
-		
-		totalTV.setText(" " + String.valueOf(total) + getResources().getString(R.string.currencyText));
+
+		totalTV.setText(" " + String.valueOf(total)
+				+ getResources().getString(R.string.currencyText));
 
 		if (shoppingList.getCount() != 1) {
 			countTV.setText(String.valueOf(shoppingList.getCount() + " "
@@ -107,7 +109,7 @@ public class ShowShoppingList extends Activity {
 		getMenuInflater().inflate(R.menu.show_shopping_list, menu);
 		return true;
 	}
-	
+
 	public void help() {
 		AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
 		LayoutInflater inflater = this.getLayoutInflater();
@@ -145,9 +147,10 @@ public class ShowShoppingList extends Activity {
 		case R.id.openBrowser:
 			Intent internetIntent = new Intent(Intent.ACTION_VIEW,
 					Uri.parse("http://m.clasohlson.com/no/"));
-					internetIntent.setComponent(new ComponentName("com.android.browser","com.android.browser.BrowserActivity"));
-					internetIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-					context.startActivity(internetIntent);
+			internetIntent.setComponent(new ComponentName("com.android.browser",
+					"com.android.browser.BrowserActivity"));
+			internetIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			context.startActivity(internetIntent);
 		case R.id.exitApp:
 			setResult(1);
 			finish();

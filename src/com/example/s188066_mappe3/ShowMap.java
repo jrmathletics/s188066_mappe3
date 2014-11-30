@@ -30,7 +30,7 @@ public class ShowMap extends Activity implements LocationListener {
 	private int userIcon, clasIcon;
 	private AlertDialog messageDialog;
 	private LocationManager locManager;
-	
+
 	static final LatLng TORGGATA = new LatLng(59.913650, 10.746969);
 	static final LatLng OSLOCITY = new LatLng(59.912534, 10.751859);
 	static final LatLng BOGSTADVEIEN = new LatLng(59.925927, 10.721561);
@@ -63,39 +63,80 @@ public class ShowMap extends Activity implements LocationListener {
 		if (map != null) {
 			map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 		}
-		Marker torggata = map.addMarker(new MarkerOptions().position(TORGGATA).title(getResources().getString(R.string.torggataTitle)).snippet(getResources().getString(R.string.torggataSnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
-		Marker oslocity = map.addMarker(new MarkerOptions().position(OSLOCITY).title(getResources().getString(R.string.oslocityTitle)).snippet(getResources().getString(R.string.oslocitySnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
-		Marker bogstadveien = map.addMarker(new MarkerOptions().position(BOGSTADVEIEN).title(getResources().getString(R.string.bogstadveienTitle)).snippet(getResources().getString(R.string.bogstadveienSnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
-		Marker lambertseter = map.addMarker(new MarkerOptions().position(LAMBERTSETER).title(getResources().getString(R.string.lambertseterTitle)).snippet(getResources().getString(R.string.lambertseterSnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
-		Marker bryn = map.addMarker(new MarkerOptions().position(BRYN).title(getResources().getString(R.string.brynTitle)).snippet(getResources().getString(R.string.brynSnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
-		Marker alna = map.addMarker(new MarkerOptions().position(ALNA).title(getResources().getString(R.string.alnaTitle)).snippet(getResources().getString(R.string.alnaSnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
-		Marker storo = map.addMarker(new MarkerOptions().position(STORO).title(getResources().getString(R.string.storoTitle)).snippet(getResources().getString(R.string.storoSnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
-		Marker strommen = map.addMarker(new MarkerOptions().position(STROMMEN).title(getResources().getString(R.string.strommenTitle)).snippet(getResources().getString(R.string.strommenSnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
-		Marker lorenskog = map.addMarker(new MarkerOptions().position(LORENSKOG).title(getResources().getString(R.string.lorenskogTitle)).snippet(getResources().getString(R.string.lorenskogSnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
-		Marker ccvest = map.addMarker(new MarkerOptions().position(CCVEST).title(getResources().getString(R.string.ccvestTitle)).snippet(getResources().getString(R.string.ccvestSnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
-		Marker sandvika = map.addMarker(new MarkerOptions().position(SANDVIKA).title(getResources().getString(R.string.sandvikaTitle)).snippet(getResources().getString(R.string.sandvikaSnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
-		Marker asker = map.addMarker(new MarkerOptions().position(ASKER).title(getResources().getString(R.string.askerTitle)).snippet(getResources().getString(R.string.askerSnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
-		Marker slependen = map.addMarker(new MarkerOptions().position(SLEPENDEN).title(getResources().getString(R.string.slependenTitle)).snippet(getResources().getString(R.string.slependenSnippet)).icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker torggata = map.addMarker(new MarkerOptions().position(TORGGATA)
+				.title(getResources().getString(R.string.torggataTitle))
+				.snippet(getResources().getString(R.string.torggataSnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker oslocity = map.addMarker(new MarkerOptions().position(OSLOCITY)
+				.title(getResources().getString(R.string.oslocityTitle))
+				.snippet(getResources().getString(R.string.oslocitySnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker bogstadveien = map.addMarker(new MarkerOptions()
+				.position(BOGSTADVEIEN)
+				.title(getResources().getString(R.string.bogstadveienTitle))
+				.snippet(getResources().getString(R.string.bogstadveienSnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker lambertseter = map.addMarker(new MarkerOptions()
+				.position(LAMBERTSETER)
+				.title(getResources().getString(R.string.lambertseterTitle))
+				.snippet(getResources().getString(R.string.lambertseterSnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker bryn = map.addMarker(new MarkerOptions().position(BRYN)
+				.title(getResources().getString(R.string.brynTitle))
+				.snippet(getResources().getString(R.string.brynSnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker alna = map.addMarker(new MarkerOptions().position(ALNA)
+				.title(getResources().getString(R.string.alnaTitle))
+				.snippet(getResources().getString(R.string.alnaSnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker storo = map.addMarker(new MarkerOptions().position(STORO)
+				.title(getResources().getString(R.string.storoTitle))
+				.snippet(getResources().getString(R.string.storoSnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker strommen = map.addMarker(new MarkerOptions().position(STROMMEN)
+				.title(getResources().getString(R.string.strommenTitle))
+				.snippet(getResources().getString(R.string.strommenSnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker lorenskog = map.addMarker(new MarkerOptions().position(LORENSKOG)
+				.title(getResources().getString(R.string.lorenskogTitle))
+				.snippet(getResources().getString(R.string.lorenskogSnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker ccvest = map.addMarker(new MarkerOptions().position(CCVEST)
+				.title(getResources().getString(R.string.ccvestTitle))
+				.snippet(getResources().getString(R.string.ccvestSnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker sandvika = map.addMarker(new MarkerOptions().position(SANDVIKA)
+				.title(getResources().getString(R.string.sandvikaTitle))
+				.snippet(getResources().getString(R.string.sandvikaSnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker asker = map.addMarker(new MarkerOptions().position(ASKER)
+				.title(getResources().getString(R.string.askerTitle))
+				.snippet(getResources().getString(R.string.askerSnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
+		Marker slependen = map.addMarker(new MarkerOptions().position(SLEPENDEN)
+				.title(getResources().getString(R.string.slependenTitle))
+				.snippet(getResources().getString(R.string.slependenSnippet))
+				.icon(BitmapDescriptorFactory.fromResource(clasIcon)));
 
-		
 		updatePlaces();
 
 	}
-	
+
 	@Override
 	protected void onResume() {
-	    super.onResume();
-	    if(map != null){
-	        locManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 30000, 100, this);
-	    }
+		super.onResume();
+		if (map != null) {
+			locManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+					30000, 100, this);
+		}
 	}
-	 
+
 	@Override
 	protected void onPause() {
-	    super.onPause();
-	    if(map != null){
-	        locManager.removeUpdates(this);
-	    }
+		super.onPause();
+		if (map != null) {
+			locManager.removeUpdates(this);
+		}
 	}
 
 	private void updatePlaces() {
@@ -117,10 +158,10 @@ public class ShowMap extends Activity implements LocationListener {
 				.icon(BitmapDescriptorFactory.fromResource(userIcon))
 				.snippet(getResources().getString(R.string.userSnippetText)));
 
-		if(zoomer){
-		map.animateCamera(CameraUpdateFactory.newLatLngZoom(lastLatLng, 12), 3000,
-				null);
-		zoomer = false;
+		if (zoomer) {
+			map.animateCamera(CameraUpdateFactory.newLatLngZoom(lastLatLng, 12),
+					3000, null);
+			zoomer = false;
 		}
 		locManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 30000,
 				100, this);
@@ -131,7 +172,7 @@ public class ShowMap extends Activity implements LocationListener {
 		getMenuInflater().inflate(R.menu.map_menu, menu);
 		return true;
 	}
-	
+
 	public void help() {
 		AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
 		LayoutInflater inflater = this.getLayoutInflater();
@@ -166,9 +207,10 @@ public class ShowMap extends Activity implements LocationListener {
 		case R.id.openBrowser:
 			Intent internetIntent = new Intent(Intent.ACTION_VIEW,
 					Uri.parse("http://m.clasohlson.com/no/"));
-					internetIntent.setComponent(new ComponentName("com.android.browser","com.android.browser.BrowserActivity"));
-					internetIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-					context.startActivity(internetIntent);
+			internetIntent.setComponent(new ComponentName("com.android.browser",
+					"com.android.browser.BrowserActivity"));
+			internetIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			context.startActivity(internetIntent);
 		case R.id.exitApp:
 			setResult(1);
 			finish();

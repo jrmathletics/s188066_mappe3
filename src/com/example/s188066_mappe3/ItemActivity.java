@@ -1,5 +1,9 @@
 package com.example.s188066_mappe3;
 
+import com.example.s188066_mappe3.database.DBHandler;
+import com.example.s188066_mappe3.objects.ListItem;
+import com.example.s188066_mappe3.objects.Product;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
@@ -76,6 +80,7 @@ public class ItemActivity extends Activity implements OnClickListener {
 		dBHandler.addListItem(new ListItem(p.getProductname(), p.getPrice(), p
 				.getId()));
 	}
+
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == 1) {
 			setResult(1);
@@ -120,9 +125,10 @@ public class ItemActivity extends Activity implements OnClickListener {
 		case R.id.openBrowser:
 			Intent internetIntent = new Intent(Intent.ACTION_VIEW,
 					Uri.parse("http://m.clasohlson.com/no/"));
-					internetIntent.setComponent(new ComponentName("com.android.browser","com.android.browser.BrowserActivity"));
-					internetIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-					context.startActivity(internetIntent);
+			internetIntent.setComponent(new ComponentName("com.android.browser",
+					"com.android.browser.BrowserActivity"));
+			internetIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			context.startActivity(internetIntent);
 		case R.id.exitApp:
 			setResult(1);
 			finish();

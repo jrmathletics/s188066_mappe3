@@ -1,7 +1,13 @@
-package com.example.s188066_mappe3;
+package com.example.s188066_mappe3.database;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.s188066_mappe3.objects.Item;
+import com.example.s188066_mappe3.objects.ListItem;
+import com.example.s188066_mappe3.objects.Product;
+import com.example.s188066_mappe3.objects.Wall;
+
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -43,8 +49,8 @@ public class DBHandler extends SQLiteOpenHelper {
 	public DBHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
-	
-	public DBHandler open() throws SQLException{
+
+	public DBHandler open() throws SQLException {
 		db = this.getWritableDatabase();
 		return this;
 	}
@@ -81,7 +87,7 @@ public class DBHandler extends SQLiteOpenHelper {
 		db.insert(ITEM_TABLE_NAME, null, values);
 		db.close();
 	}
-	
+
 	public List<Item> findAllItems() {
 		List<Item> itemList = new ArrayList<Item>();
 		String selectQuery = "SELECT * FROM " + ITEM_TABLE_NAME;
@@ -111,7 +117,7 @@ public class DBHandler extends SQLiteOpenHelper {
 		db.insert(PRODUCT_TABLE_NAME, null, values);
 		db.close();
 	}
-	
+
 	public List<Product> findAllProducts() {
 		List<Product> productList = new ArrayList<Product>();
 		String selectQuery = "SELECT * FROM " + PRODUCT_TABLE_NAME;
@@ -143,22 +149,24 @@ public class DBHandler extends SQLiteOpenHelper {
 		db.insert(LIST_TABLE_NAME, null, values);
 		db.close();
 	}
-	
-	public ListItem findListItem(long id){
+
+	public ListItem findListItem(long id) {
 		open();
 		ListItem listitem = new ListItem();
-		Cursor cursor = db.query(LIST_TABLE_NAME, new String[] { LIST_TABLE_COLUMN_ID, LIST_TABLE_COLUMN_NAME,
-				LIST_TABLE_COLUMN_PRICE, LIST_TABLE_COLUMN_PRODUCTID}, LIST_TABLE_COLUMN_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
-		if(cursor != null && cursor.moveToFirst()){
-		listitem = new ListItem(Integer.parseInt(cursor.getString(0)),
-				cursor.getString(1), Integer.parseInt(cursor.getString(2)), 
-				Integer.parseInt(cursor.getString(3)));
-		cursor.close();
+		Cursor cursor = db.query(LIST_TABLE_NAME, new String[] {
+				LIST_TABLE_COLUMN_ID, LIST_TABLE_COLUMN_NAME, LIST_TABLE_COLUMN_PRICE,
+				LIST_TABLE_COLUMN_PRODUCTID }, LIST_TABLE_COLUMN_ID + "=?",
+				new String[] { String.valueOf(id) }, null, null, null, null);
+		if (cursor != null && cursor.moveToFirst()) {
+			listitem = new ListItem(Integer.parseInt(cursor.getString(0)),
+					cursor.getString(1), Integer.parseInt(cursor.getString(2)),
+					Integer.parseInt(cursor.getString(3)));
+			cursor.close();
 		}
 		return listitem;
-		
+
 	}
-	
+
 	public List<ListItem> findAllListItems() {
 		List<ListItem> listItemList = new ArrayList<ListItem>();
 		String selectQuery = "SELECT * FROM " + LIST_TABLE_NAME;
@@ -177,116 +185,120 @@ public class DBHandler extends SQLiteOpenHelper {
 		db.close();
 		return listItemList;
 	}
-	
-	public int checkWallDB(){
+
+	public int checkWallDB() {
 		String count = "SELECT count(*) FROM " + WALL_TABLE_NAME;
 		open();
 
 		Cursor c = db.rawQuery(count, null);
 		c.moveToFirst();
 		int icount = c.getInt(0);
-		if(icount > 0)
+		if (icount > 0)
 			return 1;
 		else
-		return 0;
+			return 0;
 	}
-	
-	public int checkItemDB(){
+
+	public int checkItemDB() {
 		String count = "SELECT count(*) FROM " + ITEM_TABLE_NAME;
 		open();
 		Cursor c = db.rawQuery(count, null);
 		c.moveToFirst();
 		int icount = c.getInt(0);
-		if(icount > 0)
+		if (icount > 0)
 			return 1;
 		else
-		return 0;
+			return 0;
 	}
-	
-	public int checkProductDB(){
+
+	public int checkProductDB() {
 		String count = "SELECT count(*) FROM " + PRODUCT_TABLE_NAME;
 		open();
 		Cursor c = db.rawQuery(count, null);
 		c.moveToFirst();
 		int icount = c.getInt(0);
-		if(icount > 0)
+		if (icount > 0)
 			return 1;
 		else
-		return 0;
+			return 0;
 	}
-	
-	public Product findProduct(long wID, long tID){
+
+	public Product findProduct(long wID, long tID) {
 		open();
-		Cursor cursor = db.query(PRODUCT_TABLE_NAME, new String[] { PRODUCT_TABLE_COLUMN_ID, PRODUCT_TABLE_COLUMN_NAME,
-				PRODUCT_TABLE_COLUMN_INFO, PRODUCT_TABLE_COLUMN_PRICE, PRODUCT_TABLE_COLUMN_WID,
-				PRODUCT_TABLE_COLUMN_TID, PRODUCT_TABLE_COLUMN_IMAGE}, PRODUCT_TABLE_COLUMN_WID + "=?" + " AND " +
-				PRODUCT_TABLE_COLUMN_TID + "=?", new String[]{String.valueOf(wID), String.valueOf(tID)}, null, null, null, null);
+		Cursor cursor = db.query(PRODUCT_TABLE_NAME, new String[] {
+				PRODUCT_TABLE_COLUMN_ID, PRODUCT_TABLE_COLUMN_NAME,
+				PRODUCT_TABLE_COLUMN_INFO, PRODUCT_TABLE_COLUMN_PRICE,
+				PRODUCT_TABLE_COLUMN_WID, PRODUCT_TABLE_COLUMN_TID,
+				PRODUCT_TABLE_COLUMN_IMAGE }, PRODUCT_TABLE_COLUMN_WID + "=?" + " AND "
+				+ PRODUCT_TABLE_COLUMN_TID + "=?", new String[] { String.valueOf(wID),
+				String.valueOf(tID) }, null, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
 		Product product = new Product(Integer.parseInt(cursor.getString(0)),
-				cursor.getString(1), cursor.getString(2), 
-				Integer.parseInt(cursor.getString(3)), 
-				Integer.parseInt(cursor.getString(4)), Integer.parseInt(cursor.getString(5)), cursor.getString(6));
-	
+				cursor.getString(1), cursor.getString(2), Integer.parseInt(cursor
+						.getString(3)), Integer.parseInt(cursor.getString(4)),
+				Integer.parseInt(cursor.getString(5)), cursor.getString(6));
+
 		return product;
 	}
-	
-	public Product findProduct(long id){
+
+	public Product findProduct(long id) {
 		open();
 		Product product = new Product();
-		Cursor cursor = db.query(PRODUCT_TABLE_NAME, new String[] { PRODUCT_TABLE_COLUMN_ID, PRODUCT_TABLE_COLUMN_NAME,
-				PRODUCT_TABLE_COLUMN_INFO, PRODUCT_TABLE_COLUMN_PRICE, PRODUCT_TABLE_COLUMN_WID,
-				PRODUCT_TABLE_COLUMN_TID, PRODUCT_TABLE_COLUMN_IMAGE}, PRODUCT_TABLE_COLUMN_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
-		if(cursor != null && cursor.moveToFirst()){
-		product = new Product(Integer.parseInt(cursor.getString(0)),
-				cursor.getString(1), cursor.getString(2), 
-				Integer.parseInt(cursor.getString(3)), 
-				Integer.parseInt(cursor.getString(4)), Integer.parseInt(cursor.getString(5)), cursor.getString(6));
-		cursor.close();
+		Cursor cursor = db.query(PRODUCT_TABLE_NAME, new String[] {
+				PRODUCT_TABLE_COLUMN_ID, PRODUCT_TABLE_COLUMN_NAME,
+				PRODUCT_TABLE_COLUMN_INFO, PRODUCT_TABLE_COLUMN_PRICE,
+				PRODUCT_TABLE_COLUMN_WID, PRODUCT_TABLE_COLUMN_TID,
+				PRODUCT_TABLE_COLUMN_IMAGE }, PRODUCT_TABLE_COLUMN_ID + "=?",
+				new String[] { String.valueOf(id) }, null, null, null, null);
+		if (cursor != null && cursor.moveToFirst()) {
+			product = new Product(Integer.parseInt(cursor.getString(0)),
+					cursor.getString(1), cursor.getString(2), Integer.parseInt(cursor
+							.getString(3)), Integer.parseInt(cursor.getString(4)),
+					Integer.parseInt(cursor.getString(5)), cursor.getString(6));
+			cursor.close();
 		}
 		return product;
 	}
-	
-	public int countListItems(){
+
+	public int countListItems() {
 		String count = "SELECT count(*) FROM " + LIST_TABLE_NAME;
 		open();
 		Cursor c = db.rawQuery(count, null);
 		int counter = 0;
 		if (c.moveToFirst())
-		    counter = c.getInt(0);	
+			counter = c.getInt(0);
 		return counter;
 	}
-	
-	public void deleteListItem(ListItem listitem){
+
+	public void deleteListItem(ListItem listitem) {
 		open();
-		db.delete(LIST_TABLE_NAME, LIST_TABLE_COLUMN_ID + " =?",new String[]{ String.valueOf(listitem.getId())});
+		db.delete(LIST_TABLE_NAME, LIST_TABLE_COLUMN_ID + " =?",
+				new String[] { String.valueOf(listitem.getId()) });
 		db.close();
 	}
-	
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		String CREATE_WALLS_TABLE = "CREATE TABLE " + WALL_TABLE_NAME + "("
-				+ WALL_COLUMN_ID + " INTEGER PRIMARY KEY,"
-				+ WALL_COLUMN_WALLTYPE + " TEXT" + ")";
+				+ WALL_COLUMN_ID + " INTEGER PRIMARY KEY," + WALL_COLUMN_WALLTYPE
+				+ " TEXT" + ")";
 
 		String CREATE_ITEMS_TABLE = "CREATE TABLE " + ITEM_TABLE_NAME + "("
 				+ ITEM_TABLE_COLUMN_ID + " INTEGER PRIMARY KEY,"
 				+ ITEM_TABLE_COLUMN_TYPE + " TEXT" + ")";
 
-		String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + PRODUCT_TABLE_NAME
-				+ "( " + PRODUCT_TABLE_COLUMN_ID + " INTEGER PRIMARY KEY, "
-				+ PRODUCT_TABLE_COLUMN_NAME + " TEXT, "
-				+ PRODUCT_TABLE_COLUMN_INFO + " TEXT, "
-				+ PRODUCT_TABLE_COLUMN_PRICE + " INTEGER, "
-				+ PRODUCT_TABLE_COLUMN_WID + " INTEGER, "
-				+ PRODUCT_TABLE_COLUMN_TID + " INTEGER, "
-				+ PRODUCT_TABLE_COLUMN_IMAGE + " TEXT )";
+		String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + PRODUCT_TABLE_NAME + "( "
+				+ PRODUCT_TABLE_COLUMN_ID + " INTEGER PRIMARY KEY, "
+				+ PRODUCT_TABLE_COLUMN_NAME + " TEXT, " + PRODUCT_TABLE_COLUMN_INFO
+				+ " TEXT, " + PRODUCT_TABLE_COLUMN_PRICE + " INTEGER, "
+				+ PRODUCT_TABLE_COLUMN_WID + " INTEGER, " + PRODUCT_TABLE_COLUMN_TID
+				+ " INTEGER, " + PRODUCT_TABLE_COLUMN_IMAGE + " TEXT )";
 
 		String CREATE_LIST_TABLE = "CREATE TABLE " + LIST_TABLE_NAME + "( "
 				+ LIST_TABLE_COLUMN_ID + " INTEGER PRIMARY KEY, "
-				+ LIST_TABLE_COLUMN_NAME + " TEXT, " + LIST_TABLE_COLUMN_PRICE + " INTEGER, " + LIST_TABLE_COLUMN_PRODUCTID 
-				+ " INTEGER )";
+				+ LIST_TABLE_COLUMN_NAME + " TEXT, " + LIST_TABLE_COLUMN_PRICE
+				+ " INTEGER, " + LIST_TABLE_COLUMN_PRODUCTID + " INTEGER )";
 
 		Log.d("SQL", CREATE_PRODUCTS_TABLE);
 		Log.d("SQL", CREATE_WALLS_TABLE);

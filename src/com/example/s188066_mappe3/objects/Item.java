@@ -1,4 +1,4 @@
-package com.example.s188066_mappe3;
+package com.example.s188066_mappe3.objects;
 
 public class Item {
 	int id;
@@ -20,21 +20,21 @@ public class Item {
 		return id;
 	}
 
-	void setId(int itemid) {
+	public void setId(int itemid) {
 		id = itemid;
 	}
 
-	String getItemtype() {
+	public String getItemtype() {
 		return itemtype;
 	}
 
-	void setItemtype(String itemt) {
+	public void setItemtype(String itemt) {
 		itemtype = itemt;
 	}
-	
+
 	@Override
 	public String toString() {
-	    return this.id + ". " + this.itemtype;
+		return this.id + ". " + this.itemtype;
 	}
 
 }

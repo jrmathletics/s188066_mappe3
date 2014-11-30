@@ -1,4 +1,4 @@
-package com.example.s188066_mappe3;
+package com.example.s188066_mappe3.objects;
 
 public class Wall {
 	int id;
@@ -21,21 +21,21 @@ public class Wall {
 		return id;
 	}
 
-	void setId(int wallid) {
+	public void setId(int wallid) {
 		id = wallid;
 	}
 
-	String getWalltype() {
+	public String getWalltype() {
 		return walltype;
 	}
 
-	void setWalltype(String wallt) {
+	public void setWalltype(String wallt) {
 		walltype = wallt;
 	}
-	
+
 	@Override
 	public String toString() {
-	    return this.id + ". " + this.walltype;
+		return this.id + ". " + this.walltype;
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.example.s188066_mappe3;
+package com.example.s188066_mappe3.objects;
 
 public class ListItem {
 	int id;
@@ -22,35 +22,35 @@ public class ListItem {
 		this.productid = productID;
 	}
 
-	int getId() {
+	public int getId() {
 		return id;
 	}
 
-	void setId(int productid) {
+	public void setId(int productid) {
 		id = productid;
 	}
 
-	String getListItemname() {
+	public String getListItemname() {
 		return listitemname;
 	}
 
-	void setListItemname(String listitemn) {
+	public void setListItemname(String listitemn) {
 		listitemname = listitemn;
 	}
 
-	int getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	void setPrice(int pprice) {
+	public void setPrice(int pprice) {
 		price = pprice;
 	}
 
-	int getProductID() {
+	public int getProductID() {
 		return productid;
 	}
 
-	void setProductID(int pID) {
+	public void setProductID(int pID) {
 		productid = pID;
 	}
 

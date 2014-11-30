@@ -8,48 +8,47 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.s188066_mappe3.SeeProductActivity" >
 
-    <ImageView 
+    <ImageView
         android:id="@+id/shoppinglistProductImageView"
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/productImageText"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/backgroundshape"
-    />
-    
+        android:contentDescription="@string/productImageText" />
+
     <TextView
         android:id="@+id/shoppinglistProductNameTV"
-        android:layout_below="@+id/shoppinglistProductImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-	/>
-    
+        android:layout_below="@+id/shoppinglistProductImageView"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/shoppinglistProductInfoTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/shoppinglistProductNameTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-    />
-    
-    <TextView 
+        android:background="@drawable/backgroundshape"
+        android:textSize="14sp" />
+
+    <TextView
         android:id="@+id/shoppinglistProductPriceTV"
-        android:layout_below="@+id/shoppinglistProductInfoTV"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"     
-   	/>
-    
+        android:layout_below="@+id/shoppinglistProductInfoTV"
+        android:background="@drawable/backgroundshape"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
     <Button
         android:id="@+id/deleteProductButton"
-        android:layout_below="@+id/shoppinglistProductPriceTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/shoppinglistProductPriceTV"
         android:layout_marginTop="2dp"
-        android:text="@string/deleteProductButtonText"
         android:background="@drawable/custom_button"
-        android:textColor="#FFFFFF"
-   	/>
+        android:text="@string/deleteProductButtonText"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>
