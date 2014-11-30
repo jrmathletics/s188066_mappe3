@@ -44,7 +44,7 @@
     <string name="locate">Finn Butikk</string>
     <string name="exitApp">Exit</string>
     <string name="productImageText">Produktbilde</string>
-    <string name="emptyShoppingListText">Handlelisten Er Tom :(</string>
+    <string name="emptyShoppingListText">Handlelisten er tom :(</string>
     <string name="helpDialogTitle">Hjelp</string>
     <string name="shoppingListHelp">Vis Handlelisten</string>
     <string name="exitHelp">Lukk Applikasjon</string>
@@ -53,7 +53,7 @@
     <!-- BUTTONS -->
     <string name="setButtonText">Sett Valg</string>
     <string name="addProductButtonText">Legg Produkt Til Handlelisten</string>
-    <string name="deleteProductButtonText">Slett Produdukt Fra Handlelisten</string>
+    <string name="deleteProductButtonText">Slett Produkt Fra Handlelisten</string>
     <string name="showShoppingListButtonText">Vis Handleliste</string>
 
     <!-- DIV 2 -->
