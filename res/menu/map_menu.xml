@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/shopping_list"
+        android:icon="@drawable/ic_action_paste"
+        android:showAsAction="always"
+        android:title="@string/shopping_tab"/>
+    <item
+        android:id="@+id/help"
+        android:icon="@drawable/ic_action_help"
+        android:showAsAction="ifRoom"
+        android:title="@string/help"/>
+    <item
+        android:id="@+id/exitApp"
+        android:icon="@drawable/ic_action_remove"
+        android:showAsAction="always"
+        android:title="@string/exitApp"/>
+    <item
+        android:id="@+id/openBrowser"
+        android:icon="@drawable/ic_action_web_site"
+        android:showAsAction="ifRoom"
+        android:title="@string/openBrowserText"/>
+
+</menu>

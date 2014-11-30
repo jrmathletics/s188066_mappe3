@@ -1,79 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- MAINACTIVITY -->
     <string name="app_name">Skruevelger\'n</string>
-    <string name="wallText">Which wall do you have?</string>
-    <string name="thingText">What are you planning on hanging up?</string>
-
+    <string name="wallText">Hvilken vegg har du?</string>
+    <string name="thingText">Hva har du tenkt å henge opp?</string>
+    <string name="action_settings">Instillinger</string>
+    
+    <!-- WALLS -->
+    <string name="bWallText">Betong</string>
+    <string name="thWallText">Tegl/Hullstein</string>
+    <string name="llWallText">Lettbetong</string>
+    <string name="gWallText">Gips</string>
+    <string name="sWallText">Sponplate</string>
+    
+    <!-- ITEMS -->
+    <string name="lampText">Taklampe</string>
+    <string name="curtainText">Gardinstang</string>
+    <string name="sMirrorFrameText">Mindre Maleri/Speil</string>
+    <string name="bMirrorFrameText">Større Maleri/Speil</string>
+    <string name="closetText">Skap/Garderobehylle</string>
+    
+    <!-- PRODUCTS -->
+    <string name="productButterflyText">Takbeslag</string>
+    <string name="productUniversalPCHText">Universalplugg M/ Lampekrok</string>
+    <string name="productNylonPCHText">Nylonplugg M/ Lampekrok</string>
+    <string name="productScrewText">Skrue</string>
+    <string name="productDrywallAnchorText">Gipsanker-/plugg</string>
+    <string name="productUniversalPSText">Universalplugg M/ Skrue</string>
+    <string name="productNylonPSText">Nylonplugg M/ Skrue</string>
+    <string name="productPictureHookText">X-Krok</string>
+    <string name="productHerculesText">Gipskrok Herkules</string>
+    <string name="productPlasticHardWallText">XB-Krok</string>
+    <string name="productExpansionText">Ekspansjonsanker For Gips</string>
+    
     <!-- DIV -->
-    <string name="action_settings">Settings</string>
-    <string name="currencyText">Kr</string>
-    <string name="productAddedText">Product added to shoppinglist</string>
-    <string name="productDeletedText">Product deleted from shoppinglist</string>
-    <string name="deleteTitle">Delete Item</string>
-    <string name="deleteText">Do you want to delete the item?</string>
-    <string name="home_tab">Home</string>
-    <string name="shopping_tab">Shopping List</string>
-    <string name="locate">Locate Store</string>
+    <string name="currencyText">,– kr</string>
+    <string name="productAddedText">Produkt Lagt Til Handleliste</string>
+    <string name="productDeletedText">Produkt Slettet Fra Handleliste</string>
+    <string name="deleteTitle">Slett Produkt</string>
+    <string name="deleteText">Vil Du Slette Denne Artikkelen?</string>
+    <string name="home_tab">Hjem</string>
+    <string name="shopping_tab">Handleliste</string>
+    <string name="locate">Finn Butikk</string>
     <string name="exitApp">Exit</string>
-    <string name="productImageText">Product Image</string>
-    <string name="emptyShoppingListText">The Shopping List Is Empty :(</string>
+    <string name="productImageText">Produktbilde</string>
+    <string name="emptyShoppingListText">Handlelisten Er Tom :(</string>
+    <string name="helpDialogTitle">Hjelp</string>
+    <string name="shoppingListHelp">Vis Handlelisten</string>
+    <string name="exitHelp">Lukk Applikasjon</string>
+    <string name="locatorHelp">Finn Butikk</string>
 
     <!-- BUTTONS -->
-    <string name="setButtonText">Set Choices</string>
-    <string name="addProductButtonText">Add Product to Shoppinglist</string>
-    <string name="deleteProductButtonText">Delete Product from Shoppinglist</string>
-    <string name="showShoppingListButtonText">Show Shoppinglist</string>
-
-    <!-- WALLS -->
-    <string name="bWallText">Concrete</string>
-    <string name="thWallText">Brickwork</string>
-    <string name="llWallText">Cinder Block</string>
-    <string name="gWallText">Drywall</string>
-    <string name="sWallText">Plywood</string>
-
-    <!-- THINGS -->
-    <string name="lampText">Ceiling Lamp</string>
-    <string name="curtainText">Curtain Rod</string>
-    <string name="sMirrorFrameText">Small Mirror/Frame</string>
-    <string name="bMirrorFrameText">Large Mirror/Frame</string>
-    <string name="closetText">Closet Shelf</string>
-
-    <!-- PRODUCTS -->
-    <string name="productButterflyText">Butterfly Anchor</string>
-    <string name="productUniversalPCHText">Universal Plug W/ Ceiling Hook</string>
-    <string name="productNylonPCHText">Nylon Plug W/ Ceiling Hook</string>
-    <string name="productScrewText">Screw</string>
-    <string name="productDrywallAnchorText">Drywall Anchor</string>
-    <string name="productUniversalPSText">Universal Plug W/ Screw</string>
-    <string name="productNylonPSText">Nylon Plug W/ Screw</string>
-    <string name="productPictureHookText">Picture Hook</string>
-    <string name="productHerculesText">Drywall Hook Hercules</string>
-    <string name="productPlasticHardWallText">Plastic Hard Wall Picture Hook</string>
-    <string name="productExpansionText">Drywall Expansion Anchor</string>
+	<string name="setButtonText">Sett Valg</string>
+    <string name="addProductButtonText">Legg Produkt Til Handlelisten</string>
+    <string name="deleteProductButtonText">Slett Produdukt Fra Handlelisten</string>
+    <string name="showShoppingListButtonText">Vis Handleliste</string>
 
     <!-- DIV 2 -->
-    <string name="title_activity_item">ItemActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_show_shopping_list">ShowShoppingList</string>
+    <string name="title_activity_item">Valgt Produkt</string>
+    <string name="title_activity_show_shopping_list">Handleliste</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="title_activity_main_fragment">MainFragment</string>
+    <string name="totalText">Total: </string>
+    <string name="countText"> artikler i handlelisten</string>
+    <string name="countOneText"> artikkel i handlelisten</string>
 
     <!-- PRODUCT INFO -->
-    <string name="productButterflyTexti">Butterfly Anchor Info</string>
-    <string name="productUniversalPCHTexti">Universal Plug W/ Ceiling Hook Info</string>
-    <string name="productNylonPCHTexti">Nylon Plug W/ Ceiling Hook Info</string>
-    <string name="productScrewTexti">Screw Info</string>
-    <string name="productDrywallAnchorTexti">Drywall Anchor Info</string>
-    <string name="productUniversalPSTexti">Universal Plug W/ Screw Info</string>
-    <string name="productNylonPSTexti">Nylon Plug W/ Screw Info</string>
-    <string name="productPictureHookTexti">Picture Hook Info</string>
-    <string name="productHerculesTexti">Drywall Hook Hercules Info</string>
-    <string name="productPlasticHardWallTexti">Plastic Hard Wall Picture Hook Info</string>
-    <string name="productExpansionTexti">Drywall Expansion Anchor Info</string>
-    <string name="title_activity_see_product">SeeProductActivity</string>
-
+    <string name="productButterflyTexti">Brukes i ulike typer byggplater med hulrom. Maks belastning 10 kg.</string>
+    <string name="productUniversalPCHTexti">Passer bra når du skal henge opp lamper. Maks belastning 5–15kg.</string>
+    <string name="productNylonPCHTexti">Passer bra når du skal henge opp lamper. Maks belastning 10–20kg.</string>
+    <string name="productScrewTexti">Skruer passer til mye. Forhør deg med en ansatt om hvilken som passer akkurat til deg!</string>
+    <string name="productDrywallAnchorTexti">Brukes i gipsplater på tykkelse med 9mm eller mer. Forhør deg med en ansatt om akkurat den som passer til deg!</string>
+    <string name="productUniversalPSTexti">Passer bra når du skal henge opp mellomstore ting. Maks belastning 5–15kg.</string>
+    <string name="productNylonPSTexti">Passer bra når du skal henge opp mellomstore ting. Maks belastning 10–20kg.</string>
+    <string name="productPictureHookTexti">Passer bra til små bilder og speil. Holder 1–2 kg.</string>
+    <string name="productHerculesTexti">Bærer opp til 25 kg! Lager minimalt med hull og ingen behov for verktøy!</string>
+    <string name="productPlasticHardWallTexti">Passer perfekt til mindre bilder og speil. Holder 1–2 kg.</string>
+    <string name="productExpansionTexti">Beregnet for bruk i gips–, spon–, trefiberplater. Forhør deg med en ansatt om hvilken som passer akkurat til deg!</string>
+    <string name="title_activity_see_product">Produktvisning</string>
+    
+    <!-- ACTIONBAR AND MENU ITEMS-->
+    <string name="help">Hjelp</string>
+    <string name="language">Språk</string>
+    <string name="eLanguage">Engelsk</string>
+    <string name="nLanguage">Norsk</string>
+    <string name="set_language">Sett Språk</string>
+    <string name="title_activity_show_map">Butikkfinner</string>
+    <string name="openBrowserText">Gå til Nettbutikk</string>
+    
+     <!-- MAP -->
+    <string name="userIconText">Du er her!</string>
+    <string name="userSnippetText">Siste registrerte lokasjon</string>
+    <string name="torggataTitle">Clas Ohlson Torggata</string>
+    <string name="torggataSnippet">Torggata 6, 0181 Oslo – TLF: 23 21 40 15</string>
+    <string name="oslocityTitle">Clas Ohlson Oslo City</string>
+    <string name="oslocitySnippet">Oslo City, Stenersgt. 1, 0050 Oslo</string>
+    <string name="bogstadveienTitle">Clas Ohlson Bogstadveien</string>
+    <string name="bogstadveienSnippet">Bogstadveien 26, 0355 Oslo – TLF: 21022620</string>
+    <string name="lambertseterTitle">Clas Ohlson Lambertseter</string>
+    <string name="lambertseterSnippet">Cecilie Thoresens vei 17, 1153 Oslo</string>
+    <string name="brynTitle">Clas Ohlson Bryn Senter</string>
+    <string name="brynSnippet">Østensjøveien 79,0611 Oslo – TLF: 21 01 27 40</string>
+    <string name="alnaTitle">Clas Ohlson Alna Senter</string>
+    <string name="alnaSnippet">Strømsveien 245, 0668 Oslo – TLF: 22 90 76 30</string>
+    <string name="storoTitle">Clas Ohlson Storo Storsenter</string>
+    <string name="storoSnippet">Vitaminveien 7–9, 0485 Oslo – TLF: 21 02 04 30</string>
+    <string name="strommenTitle">Clas Ohlson Strømmen Storsenter</string>
+    <string name="strommenSnippet">Støperiveien 5, 2010 Strømmen – TLF: 64 84 51 70</string>
+    <string name="lorenskogTitle">Clas Ohlson Lørenskog Storsenter</string>
+    <string name="lorenskogSnippet">Gamleveien 88, 1476 Rasta – TLF: 67 97 82 80</string>
+    <string name="ccvestTitle">Clas Ohlson CC Vest</string>
+    <string name="ccvestSnippet">Lilleakerveien 16, 0283 Oslo – TLF: 21 01 67 00</string>
+    <string name="sandvikaTitle">Clas Ohlson Sandvika Storsenter</string>
+    <string name="sandvikaSnippet">Brodtkorbsgate 7, 1338 Sandvika – TLF: 67 55 52 20</string>
+    <string name="askerTitle">Clas Ohlson Asker</string>
+    <string name="askerSnippet">Trekanten Kjøpesenter, 1383 Asker – TLF: 66 10 04 70</string>
+    <string name="slependenTitle">Clas Ohlson Billingstad</string>
+    <string name="slependenSnippet">Pustutveien 6–14, 1396 Billingstad – TLF: 21042680</string>
+        
 </resources>

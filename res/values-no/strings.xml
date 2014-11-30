@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Skruevelgern</string>
+    <string name="app_name">Skruevelger\'n</string>
     <string name="wallText">Hvilken vegg har du?</string>
     <string name="thingText">Hva har du tenkt å henge opp?</string>
     <string name="action_settings">Instillinger</string>
-    <string name="setButtonText">Sett valg</string>
-    
     
     <!-- WALLS -->
     <string name="bWallText">Betong</string>
@@ -15,7 +13,7 @@
     <string name="gWallText">Gips</string>
     <string name="sWallText">Sponplate</string>
     
-    <!-- THINGS -->
+    <!-- ITEMS -->
     <string name="lampText">Taklampe</string>
     <string name="curtainText">Gardinstang</string>
     <string name="sMirrorFrameText">Mindre Maleri/Speil</string>
@@ -35,6 +33,82 @@
     <string name="productPlasticHardWallText">XB-Krok</string>
     <string name="productExpansionText">Ekspansjonsanker For Gips</string>
     
+    <!-- DIV -->
+    <string name="currencyText">Kr</string>
+    <string name="productAddedText">Produkt Lagt Til Handleliste</string>
+    <string name="productDeletedText">Produkt Slettet Fra Handleliste</string>
+    <string name="deleteTitle">Slett Produkt</string>
+    <string name="deleteText">Vil Du Slette Denne Artikkelen?</string>
+    <string name="home_tab">Hjem</string>
+    <string name="shopping_tab">Handleliste</string>
+    <string name="locate">Finn Butikk</string>
+    <string name="exitApp">Exit</string>
+    <string name="productImageText">Produktbilde</string>
+    <string name="emptyShoppingListText">Handlelisten Er Tom :(</string>
 
+    <!-- BUTTONS -->
+	<string name="setButtonText">Sett Valg</string>
+    <string name="addProductButtonText">Legg Produkt Til Handlelisten</string>
+    <string name="deleteProductButtonText">Slett Produdukt Fra Handlelisten</string>
+    <string name="showShoppingListButtonText">Vis Handleliste</string>
+
+    <!-- DIV 2 -->
+    <string name="title_activity_item">ItemActivity</string>
+    <string name="title_activity_show_shopping_list">Vis Handleliste</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+
+    <!-- PRODUCT INFO -->
+    <string name="productButterflyTexti">Takbeslag Info</string>
+    <string name="productUniversalPCHTexti">Universalplugg M/ Lampekrok Info</string>
+    <string name="productNylonPCHTexti">Nylonplugg M/ Lampekrok Info</string>
+    <string name="productScrewTexti">Skrue Info</string>
+    <string name="productDrywallAnchorTexti">Gipsanker-/plugg Info</string>
+    <string name="productUniversalPSTexti">Universalplugg M/ Skrue Info</string>
+    <string name="productNylonPSTexti">Nylonplugg M/ Skrue Info</string>
+    <string name="productPictureHookTexti">X-Krok Info</string>
+    <string name="productHerculesTexti">Gipskrok Hercules Info</string>
+    <string name="productPlasticHardWallTexti">XB-Krok Info</string>
+    <string name="productExpansionTexti">Ekspansjonsanker For Gips Info</string>
+    <string name="title_activity_see_product">Produktvisning</string>
+    
+    <!-- ACTIONBAR AND MENU ITEMS-->
+    <string name="help">Hjelp</string>
+    <string name="language">Språk</string>
+    <string name="eLanguage">Engelsk</string>
+    <string name="nLanguage">Norsk</string>
+    <string name="set_language">Sett Språk</string>
+    <string name="title_activity_show_map">Butikkfinner</string>
+    
+     <!-- MAP -->
+    <string name="userIconText">You are here!</string>
+    <string name="userSnippetText">Your last recorded location</string>
+    <string name="torggataTitle">Clas Ohlson Torggata</string>
+    <string name="torggataSnippet">Torggata 6, 0181 Oslo – TLF: 23 21 40 15</string>
+    <string name="oslocityTitle">Clas Ohlson Oslo City</string>
+    <string name="oslocitySnippet">Oslo City, Stenersgt. 1, 0050 Oslo</string>
+    <string name="bogstadveienTitle">Clas Ohlson Bogstadveien</string>
+    <string name="bogstadveienSnippet">Bogstadveien 26, 0355 Oslo – TLF: 21022620</string>
+    <string name="lambertseterTitle">Clas Ohlson Lambertseter</string>
+    <string name="lambertseterSnippet">Cecilie Thoresens vei 17, 1153 Oslo</string>
+    <string name="brynTitle">Clas Ohlson Bryn Senter</string>
+    <string name="brynSnippet">Østensjøveien 79,0611 Oslo – TLF: 21 01 27 40</string>
+    <string name="alnaTitle">Clas Ohlson Alna Senter</string>
+    <string name="alnaSnippet">Strømsveien 245, 0668 Oslo – TLF: 22 90 76 30</string>
+    <string name="storoTitle">Clas Ohlson Storo Storsenter</string>
+    <string name="storoSnippet">Vitaminveien 7–9, 0485 Oslo – TLF: 21 02 04 30</string>
+    <string name="strommenTitle">Clas Ohlson Strømmen Storsenter</string>
+    <string name="strommenSnippet">Støperiveien 5, 2010 Strømmen – TLF: 64 84 51 70</string>
+    <string name="lorenskogTitle">Clas Ohlson Lørenskog Storsenter</string>
+    <string name="lorenskogSnippet">Gamleveien 88, 1476 Rasta – TLF: 67 97 82 80</string>
+    <string name="ccvestTitle">Clas Ohlson CC Vest</string>
+    <string name="ccvestSnippet">Lilleakerveien 16, 0283 Oslo – TLF: 21 01 67 00</string>
+    <string name="sandvikaTitle">Clas Ohlson Sandvika Storsenter</string>
+    <string name="sandvikaSnippet">Brodtkorbsgate 7, 1338 Sandvika – TLF: 67 55 52 20</string>
+    <string name="askerTitle">Clas Ohlson Asker</string>
+    <string name="askerSnippet">Trekanten Kjøpesenter, 1383 Asker – TLF: 66 10 04 70</string>
+    <string name="slependenTitle">Clas Ohlson Billingstad</string>
+    <string name="slependenSnippet">Pustutveien 6–14, 1396 Billingstad – TLF: 21042680</string>
+    
+    
     
 </resources>

@@ -14,6 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/productImageText"
+        android:background="@drawable/backgroundshape"
     />
     
     <TextView
@@ -21,6 +22,7 @@
         android:layout_below="@+id/shoppinglistProductImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
 	/>
     
     <TextView
@@ -28,13 +30,15 @@
         android:layout_below="@+id/shoppinglistProductNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="14sp"
     />
     
     <TextView 
         android:id="@+id/shoppinglistProductPriceTV"
         android:layout_below="@+id/shoppinglistProductInfoTV"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"        
+        android:layout_height="wrap_content"
+        android:textSize="14sp"     
    	/>
     
     <Button
@@ -42,7 +46,7 @@
         android:layout_below="@+id/shoppinglistProductPriceTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="2dp"
         android:text="@string/deleteProductButtonText"
         android:background="@drawable/custom_button"
         android:textColor="#FFFFFF"

@@ -10,54 +10,42 @@
 
     <ImageView
         android:id="@+id/productImageView"
-        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:contentDescription="@string/productImageText"
-        />
-    
-    <TextView
-        android:id="@+id/wallIdTV"
-        android:layout_below="@id/productImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    
-    <TextView
-        android:id="@+id/itemIdTV"
-        android:layout_below="@+id/wallIdTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/backgroundshape"
+        android:contentDescription="@string/productImageText" />
+
     <TextView
         android:id="@+id/productNameTV"
-        android:layout_below="@+id/itemIdTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-	/>
-    
+        android:layout_below="@+id/productImageView"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/productInfoTV"
-        android:layout_below="@+id/productNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
-    
-    <TextView 
+        android:layout_below="@+id/productNameTV"
+        android:textSize="14sp" />
+
+    <TextView
         android:id="@+id/productPriceTV"
-        android:layout_below="@+id/productInfoTV"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"        
-   	/>
-    
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/productInfoTV"
+        android:textSize="14sp" />
+
     <Button
         android:id="@+id/addProductButton"
-        android:layout_below="@+id/productPriceTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/addProductButtonText"
+        android:layout_below="@+id/productPriceTV"
+        android:layout_marginTop="2dp"
         android:background="@drawable/custom_button"
-        android:textColor="#FFFFFF"
-   	/>
+        android:text="@string/addProductButtonText"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

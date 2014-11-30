@@ -1,10 +1,17 @@
 package com.example.s188066_mappe3;
 
 import java.util.List;
+import java.util.Locale;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,24 +19,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.LayoutInflater;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 	private Spinner wSpinner, iSpinner;
 	private DBHandler dbHandler;
 	private TextView wTextView,iTextView;
 	private long wallID, itemID;
-	private WallCursorAdapter wCursorAdapter;
-	private ThingCursorAdapter tCursorAdapter;
 	private Button setChoices, showShoppingList;
 	private List<Wall> walls;
 	private List<Item> items;
 	private Menu menu;
+	private AlertDialog messageDialog;
 	private static final String TAG = MainActivity.class.getSimpleName();
 
 
@@ -38,16 +46,23 @@ public class MainActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		
 		Typeface typeFace = Typeface.createFromAsset(getAssets(),"fonts/Helvetica-Bold.ttf");
 		wTextView = (TextView)findViewById(R.id.wallTV);
 		wTextView.setTypeface(typeFace);
 
 		iTextView = (TextView)findViewById(R.id.itemTV);
 		iTextView.setTypeface(typeFace);
-
 		
+		Locale locale = new Locale("no");
+		Locale.setDefault(locale);
+		Configuration config = new Configuration();
+		config.locale = locale;
+		onConfigurationChanged(config);
+
 		wallID = 0;
 		itemID = 0;
+		
 		setChoices = (Button)findViewById(R.id.setChoicesButton);
 		setChoices.setTypeface(typeFace);
 		setChoices.setOnClickListener(this);
@@ -60,7 +75,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			dbHandler.addWall(new Wall(getResources().getString(R.string.llWallText)));
 			dbHandler.addWall(new Wall(getResources().getString(R.string.gWallText)));
 			dbHandler.addWall(new Wall(getResources().getString(R.string.sWallText)));
-			
 		}
 		if(dbHandler.checkProductDB() == 0)
 		{
@@ -111,7 +125,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				id++;
-				System.out.println(id);
 				wallID = id;
 				
 			}
@@ -130,13 +143,11 @@ public class MainActivity extends Activity implements OnClickListener {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				id++;
-				System.out.println(id);
 				itemID = id;
 				
 			}
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
 			}
 			
 		});
@@ -146,28 +157,59 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.action_bar, menu);
-	    this.menu = menu;
-	    return super.onCreateOptionsMenu(menu);
+    inflater.inflate(R.menu.action_bar, menu);
+    return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Context context = getApplicationContext();
 	    switch (item.getItemId()) {
 	    case R.id.shopping_list:
         	startActivityForResult(new Intent(this, ShowShoppingList.class), 1);	
             return true;
 	    case R.id.shop_locator:
-	    		startActivityForResult(new Intent(this, ShowShoppingList.class), 1);
+	    		startActivityForResult(new Intent(this, ShowMap.class), 1);
 	    		return true;
 	    case R.id.exitApp:
 	    	finish();
+	    	return true;
+	    case R.id.openBrowser:
+				Intent internetIntent = new Intent(Intent.ACTION_VIEW,
+						Uri.parse("http://m.clasohlson.com/no/"));
+						internetIntent.setComponent(new ComponentName("com.android.browser","com.android.browser.BrowserActivity"));
+						internetIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+						context.startActivity(internetIntent);
+	    case R.id.help:
+	    	help();
 	    	return true;
 	    default:
             return super.onOptionsItemSelected(item);
 	    }
 		
 	}
+	
+	public void help(){
+		AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+		LayoutInflater inflater = this.getLayoutInflater();
+		View view = inflater.inflate(R.layout.help_view, null);
+		helpBuilder.setView(view);
+
+		helpBuilder.setTitle(R.string.helpDialogTitle);
+		
+
+		helpBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+		    @Override
+		    public void onClick(DialogInterface dialog, int which) {
+		    	messageDialog.dismiss();
+		    }
+		});
+
+		messageDialog = helpBuilder.create();
+		helpBuilder.show();
+				
+	}	
 	
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if(resultCode==1){
