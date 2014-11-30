@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="@string/emptyShoppingListText"
-        android:textColor="#60AFDC" />
+        android:textColor="@color/CLASBLUE" />
 
     <TextView
         android:id="@+id/countItemsTV"
@@ -35,14 +35,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/totalTV"
         android:text="@string/totalText"
-        android:textColor="#60AFDC" />
+        android:textColor="@color/CLASBLUE" />
 
     <TextView
         android:id="@+id/totalTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/totalTextTV"
-        android:textColor="#60AFDC" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/CLASBLUE" />
 
 </RelativeLayout>

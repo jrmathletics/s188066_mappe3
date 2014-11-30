@@ -33,6 +33,7 @@ public class ShowShoppingList extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_shopping_list);
+		total = 0;
 
 		dBHandler = new DBHandler(this);
 		emptyListTV = (TextView) findViewById(R.id.emptyListTV);
@@ -59,6 +60,13 @@ public class ShowShoppingList extends Activity {
 		ArrayAdapter<ListItem> adapter = new ArrayAdapter<ListItem>(this,
 				R.layout.trow, listitems);
 		shoppingList.setAdapter(adapter);
+		
+		for(ListItem item : listitems)
+		{
+			total += item.getPrice();
+		}
+		
+		totalTV.setText(" " + String.valueOf(total) + getResources().getString(R.string.currencyText));
 
 		if (shoppingList.getCount() != 1) {
 			countTV.setText(String.valueOf(shoppingList.getCount() + " "

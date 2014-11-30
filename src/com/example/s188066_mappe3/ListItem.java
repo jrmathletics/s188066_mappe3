@@ -5,11 +5,10 @@ public class ListItem {
 	String listitemname;
 	int price;
 	int productid;
-	
 
 	public ListItem() {
 	}
-	
+
 	public ListItem(String listitemName, int Price, int productID) {
 		this.listitemname = listitemName;
 		this.price = Price;
@@ -38,26 +37,26 @@ public class ListItem {
 	void setListItemname(String listitemn) {
 		listitemname = listitemn;
 	}
-		
-	int getPrice(){
+
+	int getPrice() {
 		return price;
 	}
-	
-	void setPrice(int pprice){
+
+	void setPrice(int pprice) {
 		price = pprice;
 	}
-	
-	int getProductID(){
+
+	int getProductID() {
 		return productid;
 	}
-	
-	void setProductID(int pID){
+
+	void setProductID(int pID) {
 		productid = pID;
 	}
-	
+
 	@Override
 	public String toString() {
-	    return this.id + ". " + this.listitemname + " [" + this.price + "kr]";
+		return " - " + this.listitemname + " [" + this.price + "kr]";
 	}
 
 }
